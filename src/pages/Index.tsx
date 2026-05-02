@@ -121,6 +121,10 @@ export default function Index() {
                 <img src={LOGO_IMG} alt="" className="h-5 w-5 object-cover rounded-sm flex-shrink-0" />
                 <span className="font-montserrat font-bold text-xs tracking-wide uppercase">Эксклюзив Россия</span>
               </div>
+              <p className="font-ibm text-famall-silver-dark text-sm mb-3 reveal">
+                Сейчас на рынок России выходит новый бренд.<br />
+                И именно сейчас формируются первые позиции.
+              </p>
               <h1 className="font-montserrat font-black text-5xl md:text-6xl leading-[0.92] tracking-tight text-famall-dark mb-6 reveal delay-100">
                 FAMALL —<br />
                 <span className="text-famall-red">премиальный бренд</span><br />
@@ -129,7 +133,7 @@ export default function Index() {
               <div className="space-y-2 mb-6 reveal delay-200">
                 {[
                   "Это не маркетплейс.",
-                  "Не перепродажа чужого.",
+                  "Не перепродажа.",
                   "И не «заработок на баночках».",
                 ].map((t, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -138,11 +142,8 @@ export default function Index() {
                   </div>
                 ))}
               </div>
-              <p className="font-ibm text-famall-silver-dark mb-3 reveal delay-200">
-                FAMALL — это брендовая продукция, которая производится на заводах с контролем качества и создаётся под массовый спрос.
-              </p>
               <p className="font-ibm text-sm text-famall-dark font-semibold border-l-2 border-famall-red pl-4 mb-6 reveal delay-200">
-                Товары, которые покупают снова.<br />Потому что ими пользуются каждый день.
+                Это продукт, который покупают снова.
               </p>
               <div className="flex items-center gap-2 mb-6 reveal delay-200">
                 <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
