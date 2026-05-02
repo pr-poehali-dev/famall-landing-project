@@ -3,6 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const FACTORY_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/89317544-6923-4c18-abf4-3cc40f0ea65c.jpg";
 const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/f7495e26-3cd4-4b85-9243-f804b5a06b40.jpg";
+const LOGO_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/6aef32ab-6791-4c39-9dbf-3d018da18144.jpg";
 
 function useReveal() {
   useEffect(() => {
@@ -123,8 +124,9 @@ export default function Index() {
       {/* NAVIGATION */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-          <div className="font-montserrat font-black text-xl tracking-tight">
-            <span className="text-famall-red">FAMALL</span>
+          <div className="flex items-center gap-2">
+            <img src={LOGO_IMG} alt="FAMALL" className="h-9 w-9 object-cover rounded" style={{ imageRendering: 'crisp-edges' }} />
+            <span className="font-montserrat font-black text-lg text-famall-red tracking-tight">FAMALL</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map(item => (
@@ -165,8 +167,12 @@ export default function Index() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT: текст */}
             <div>
-              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-6 reveal">
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">
                 Партнёрская FMCG-платформа · Россия и СНГ
+              </div>
+              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-6 reveal">
+                <img src={LOGO_IMG} alt="" className="h-5 w-5 object-cover rounded-sm flex-shrink-0" />
+                <span className="font-montserrat font-bold text-xs tracking-wide uppercase">Эксклюзив Россия</span>
               </div>
               <h1 className="font-montserrat font-black text-5xl md:text-6xl leading-[0.92] tracking-tight text-famall-dark mb-8 reveal delay-100">
                 Famall выходит<br />
@@ -219,10 +225,13 @@ export default function Index() {
                 />
                 {/* overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
-                {/* badge */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-3 py-2">
-                  <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase">FAMALL</div>
-                  <div className="font-ibm text-xs text-famall-silver mt-0.5">Premium FMCG</div>
+                {/* brand badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-2 flex items-center gap-2">
+                  <img src={LOGO_IMG} alt="FAMALL" className="h-7 w-7 object-cover rounded-sm flex-shrink-0" />
+                  <div>
+                    <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase leading-none">FAMALL</div>
+                    <div className="font-ibm text-[10px] text-famall-silver mt-0.5">Premium FMCG</div>
+                  </div>
                 </div>
                 {/* cert badges row */}
                 <div className="absolute top-4 right-4 flex flex-col gap-1.5">
@@ -884,12 +893,16 @@ export default function Index() {
 
       {/* ─── FOOTER ─── */}
       <footer className="bg-famall-dark py-10 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="font-montserrat font-black text-xl tracking-tight">
-            <span className="text-famall-red">FAMALL</span>
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <img src={LOGO_IMG} alt="FAMALL" className="h-10 w-10 object-cover rounded" />
+            <div>
+              <div className="font-montserrat font-black text-base text-white tracking-tight leading-tight">FAMALL</div>
+              <div className="text-[11px] font-ibm text-white/40 leading-tight">Россия — партнёрская FMCG-платформа Zeson Group</div>
+            </div>
           </div>
           <div className="text-xs font-ibm text-white/30 text-center">
-            © 2026 FAMALL Россия. Партнёрская FMCG-платформа Zeson Group.
+            © 2026 FAMALL Россия. Все права защищены.
           </div>
           <div className="text-xs font-ibm text-white/30 text-center">
             Доход зависит от активности и условий маркетинг-плана
