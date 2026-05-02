@@ -283,11 +283,11 @@ export default function Index() {
                 Это не<br />«попробуй продай»
               </h2>
               <p className="font-ibm text-lg text-white/80 font-semibold leading-snug mb-6 reveal delay-150">
-                Это система, в которой ты не начинаешь с нуля каждый раз.
+                Это система, где ты не начинаешь с нуля каждый раз.
               </p>
 
               <p className="font-montserrat font-bold text-sm text-famall-red uppercase tracking-wider mb-3 reveal delay-200">
-                Большинство сливается не потому что «не получилось»
+                Большинство сливается не потому что не получилось
               </p>
               <p className="font-ibm text-sm text-white/60 mb-4 reveal delay-200">А потому что:</p>
               <div className="space-y-2 mb-6 reveal delay-200">
@@ -327,6 +327,10 @@ export default function Index() {
                 ))}
               </div>
 
+              <p className="font-ibm text-sm text-white/50 mb-5 reveal delay-400">
+                Покажем модель и цифры под твою ситуацию.
+              </p>
+
               <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-8 py-4 hover:bg-famall-red-dark transition-colors reveal delay-400">
                 Получить условия и разбор <Icon name="ArrowRight" size={16} />
               </a>
@@ -335,9 +339,9 @@ export default function Index() {
             {/* RIGHT — контраст */}
             <div className="space-y-4 reveal delay-200">
               <div className="bg-white/5 border border-white/10 p-8">
-                <p className="font-ibm text-sm text-white/50 mb-2">Ты не придумываешь, как продавать.</p>
-                <p className="font-montserrat font-bold text-lg text-white leading-snug">
-                  Ты используешь систему, которая уже работает.
+                <p className="font-ibm text-sm text-white/50 mb-3">Ты не придумываешь, как продавать.</p>
+                <p className="font-montserrat font-bold text-xl text-white leading-snug">
+                  Ты используешь систему,<br />которая уже работает.
                 </p>
               </div>
 
@@ -348,7 +352,7 @@ export default function Index() {
                     <div className="w-5 h-5 bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Icon name="X" size={10} className="text-white/30" />
                     </div>
-                    <span className="font-ibm text-sm text-white/50">«попробую и посмотрю»</span>
+                    <span className="font-ibm text-sm text-white/40">«попробую и посмотрю»</span>
                   </div>
                   <div className="w-full h-px bg-white/10" />
                   <div className="flex items-start gap-3">
