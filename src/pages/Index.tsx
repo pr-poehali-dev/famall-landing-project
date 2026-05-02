@@ -631,49 +631,78 @@ export default function Index() {
       <section className="py-20 px-4 bg-famall-platinum" id="ai">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-start mb-14">
+            {/* LEFT */}
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">ИИ-инструменты</div>
               <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
               <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
                 Контент уже<br />сделан за тебя
               </h2>
-              <p className="font-ibm text-famall-silver-dark mb-4 reveal delay-200">
-                Самая частая проблема: «что постить?»<br />Здесь её нет.
+              <p className="font-ibm text-famall-silver-dark mb-3 reveal delay-150">
+                Самая частая проблема: «что постить, чтобы были клиенты?»
               </p>
-              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-200">
-                Ты не маркетолог — но выглядишь как команда.
+              <p className="font-ibm text-sm text-famall-silver mb-4 reveal delay-150">В 90% случаев люди:</p>
+              <div className="space-y-1.5 mb-6 reveal delay-200">
+                {["сидят, думают", "откладывают", "ничего не публикуют", "остаются без заявок"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-famall-red font-bold text-base leading-none">—</span>
+                    <span className="font-ibm text-sm text-famall-silver-dark">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-famall-red/10 border border-famall-red/20 px-5 py-4 mb-6 reveal delay-200">
+                <p className="font-montserrat font-bold text-sm text-famall-dark">Здесь этого нет.</p>
+              </div>
+              <p className="font-ibm text-sm text-famall-silver-dark mb-4 reveal delay-300">
+                Ты не создаёшь контент с нуля. Ты берёшь готовую систему.
               </p>
-              <div className="space-y-2 reveal delay-300">
-                {["посты", "видео и сценарии", "карточки товаров", "презентации"].map((item, i) => (
+              <p className="font-ibm text-sm text-famall-silver mb-2 reveal delay-300">У тебя уже есть:</p>
+              <div className="space-y-2 mb-6 reveal delay-300">
+                {[
+                  "посты, которые цепляют",
+                  "видео и сценарии под заявки",
+                  "карточки товаров",
+                  "презентации для клиентов",
+                ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
                     <span className="font-ibm text-sm text-famall-dark">{item}</span>
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="bg-white border border-famall-platinum-dark p-8 reveal delay-200">
-              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-5">Цепочка уже готова</div>
-              <div className="flex flex-wrap items-start gap-0">
-                {["контент", "заявка", "созвон", "подключение", "обучение", "команда"].map((step, i, arr) => (
-                  <div key={step} className="flex items-start">
-                    <div className="flex flex-col items-center px-2 py-1">
-                      <div className="w-8 h-8 bg-famall-red flex items-center justify-center mb-1.5">
-                        <span className="font-montserrat font-black text-xs text-white">{i + 1}</span>
-                      </div>
-                      <span className="text-xs text-famall-silver-dark font-ibm whitespace-nowrap">{step}</span>
-                    </div>
-                    {i < arr.length - 1 && (
-                      <Icon name="ChevronRight" size={13} className="text-famall-red/40 flex-shrink-0 mt-2.5" />
-                    )}
-                  </div>
-                ))}
+              <div className="border-l-2 border-famall-red pl-4 reveal delay-400">
+                <p className="font-ibm text-sm text-famall-silver mb-1">Ты не дизайнер, не маркетолог, не копирайтер.</p>
+                <p className="font-montserrat font-bold text-famall-dark">Но выглядишь как команда.</p>
               </div>
-              <div className="mt-6 pt-6 border-t border-famall-platinum-dark">
+            </div>
+
+            {/* RIGHT */}
+            <div className="space-y-4 reveal delay-200">
+              <div className="bg-white border border-famall-platinum-dark p-8">
+                <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-5">Цепочка уже выстроена</div>
+                <div className="flex flex-wrap items-start gap-0 mb-6">
+                  {["контент", "заявка", "созвон", "подключение", "обучение", "команда"].map((step, i, arr) => (
+                    <div key={step} className="flex items-start">
+                      <div className="flex flex-col items-center px-2 py-1">
+                        <div className="w-8 h-8 bg-famall-red flex items-center justify-center mb-1.5">
+                          <span className="font-montserrat font-black text-xs text-white">{i + 1}</span>
+                        </div>
+                        <span className="text-xs text-famall-silver-dark font-ibm whitespace-nowrap">{step}</span>
+                      </div>
+                      {i < arr.length - 1 && (
+                        <Icon name="ChevronRight" size={13} className="text-famall-red/40 flex-shrink-0 mt-2.5" />
+                      )}
+                    </div>
+                  ))}
+                </div>
                 <p className="font-ibm text-sm text-famall-silver-dark">
-                  Ты не создаёшь систему.<br />
-                  <span className="font-semibold text-famall-dark">Ты заходишь в готовую.</span>
+                  Ты не придумываешь.<br />Ты просто заходишь и используешь.
                 </p>
+              </div>
+              <div className="bg-famall-dark p-8">
+                <p className="font-ibm text-xs text-white/40 uppercase tracking-widest mb-4">Ключ</p>
+                <p className="font-ibm text-sm text-white/60 mb-2">Ты не создаёшь систему.</p>
+                <p className="font-montserrat font-bold text-xl text-white">Ты заходишь в готовую.</p>
               </div>
             </div>
           </div>
