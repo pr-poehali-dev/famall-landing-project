@@ -172,21 +172,22 @@ export default function Index() {
                 России и СНГ
               </h1>
               <p className="font-ibm text-lg text-famall-silver-dark leading-relaxed max-w-lg mb-3 reveal delay-200">
-                Платформа товаров, которые покупают снова и снова.
-                Готовая система: продукт, обучение, ИИ-инструменты и партнёрская модель для роста дохода.
+                Ты заходишь в растущий рынок товаров ежедневного спроса через готовую систему:
+                продукт, обучение, ИИ-инструменты и партнёрская модель с повторными продажами.
               </p>
-              <p className="font-ibm text-sm text-famall-silver leading-relaxed max-w-lg mb-10 border-l-2 border-famall-red pl-4 reveal delay-200">
-                Ты не продаёшь «что-то разово». Ты работаешь с продуктом, за которым возвращаются.
+              <p className="font-ibm text-sm text-famall-dark font-semibold leading-relaxed max-w-lg mb-10 border-l-2 border-famall-red pl-4 reveal delay-200">
+                Большинство зарабатывает один раз и ищет нового клиента.<br />
+                Здесь ты работаешь с продуктом, за которым возвращаются.
               </p>
               <div className="flex flex-wrap gap-4 mb-5 reveal delay-300">
                 <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm tracking-wide px-8 py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
                   Получить условия партнёрства <Icon name="ArrowRight" size={16} />
                 </a>
                 <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
-                  Как это работает
+                  Разобраться за 3 минуты
                 </a>
               </div>
-              <div className="flex items-center gap-2 mb-10 reveal delay-300">
+              <div className="flex items-center gap-2 mb-5 reveal delay-300">
                 <div className="flex -space-x-1">
                   {[0, 1, 2].map(i => (
                     <div key={i} className="w-6 h-6 rounded-full bg-famall-red/20 border-2 border-white flex items-center justify-center">
@@ -205,6 +206,10 @@ export default function Index() {
                     <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
                   </div>
                 ))}
+              </div>
+              <div className="flex items-center gap-2 mt-4 reveal delay-400">
+                <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
+                <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
               </div>
             </div>
 
