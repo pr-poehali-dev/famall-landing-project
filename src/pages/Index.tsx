@@ -112,138 +112,107 @@ export default function Index() {
       </nav>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white" style={{ paddingTop: 64 }}>
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-white to-famall-platinum/30" />
-        {/* декоративная красная полоса слева */}
-        <div className="absolute left-0 top-0 bottom-0 w-1 bg-famall-red/20 hidden lg:block" />
+      <section className="relative min-h-screen overflow-hidden bg-white" style={{ paddingTop: 64 }}>
 
-        <div className="max-w-6xl mx-auto px-4 relative z-10 w-full py-16 lg:py-24">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              {/* лейбл */}
-              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-4 reveal">
-                <img src={LOGO_IMG} alt="" className="h-4 w-4 object-cover rounded-sm flex-shrink-0" />
-                <span className="font-montserrat font-bold text-[11px] tracking-widest uppercase">Эксклюзив Россия · Новый бренд</span>
-              </div>
+        {/* ФОТО — на весь правый экран, от верха до низа, без рамки */}
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[55%] pointer-events-none" aria-hidden="true">
+          <img
+            src={HERO_PRODUCT_IMG}
+            alt=""
+            className="absolute object-cover object-center"
+            style={{ top: "-5%", left: 0, width: "115%", height: "110%", maxWidth: "none" }}
+          />
+          {/* растворение в белый — левый край (плавный переход к тексту) */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(to right, white 0%, rgba(255,255,255,0.85) 20%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 80%)"
+          }} />
+          {/* растворение сверху */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(to bottom, white 0%, rgba(255,255,255,0.5) 10%, rgba(255,255,255,0) 35%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.7) 90%, white 100%)"
+          }} />
+          {/* правый край */}
+          <div className="absolute inset-0" style={{
+            background: "linear-gradient(to left, white 0%, rgba(255,255,255,0.4) 15%, rgba(255,255,255,0) 40%)"
+          }} />
+        </div>
 
-              {/* контекст */}
-              <p className="font-ibm text-famall-silver text-sm mb-5 reveal">
-                Сейчас на рынок России выходит новый бренд.<br />
-                <span className="text-famall-dark font-semibold">И именно сейчас формируются первые позиции.</span>
-              </p>
+        {/* КОНТЕНТ */}
+        <div className="relative z-10 max-w-6xl mx-auto px-4 w-full flex flex-col justify-center min-h-[calc(100vh-64px)] py-16">
+          <div className="max-w-xl">
 
-              {/* H1 — крупный, без обрезки */}
-              <h1 className="font-montserrat font-black leading-[0.9] tracking-tight text-famall-dark mb-8 reveal delay-100"
-                style={{ fontSize: "clamp(2.6rem, 5.5vw, 4rem)" }}>
-                FAMALL —<br />
-                <span className="text-famall-red">премиальный бренд</span><br />
-                товаров<br className="hidden sm:block" /> с повторным спросом
-              </h1>
-
-              {/* 3 тезиса */}
-              <div className="space-y-2 mb-5 reveal delay-200">
-                {[
-                  "Это не маркетплейс.",
-                  "Не перепродажа.",
-                  "И не «заработок на баночках».",
-                ].map((t, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
-                    <span className="font-ibm text-famall-silver-dark">{t}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* ключевой месседж */}
-              <div className="border-l-4 border-famall-red pl-4 mb-5 py-1 reveal delay-200 bg-famall-red/5">
-                <p className="font-montserrat font-bold text-famall-dark text-base">
-                  Это продукт, который покупают снова.
-                </p>
-                <p className="font-ibm text-xs text-famall-silver mt-1">
-                  Потому что им пользуются каждый день.
-                </p>
-              </div>
-
-              {/* срочность */}
-              <div className="flex items-center gap-2 mb-7 reveal delay-200">
-                <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
-                <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
-              </div>
-
-              {/* кнопки */}
-              <div className="flex flex-wrap gap-4 mb-8 reveal delay-300">
-                <TgBtn text="👉 Перейти и посмотреть" />
-                <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-7 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
-                  Как это работает
-                </a>
-              </div>
-
-              {/* статистика */}
-              <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400">
-                {[
-                  { value: "39 000", unit: "м²", label: "собственного производства" },
-                  { value: "38+", unit: "", label: "стран присутствия" },
-                  { value: "GMPC", unit: " 100K", label: "фарм-уровень чистоты" },
-                  { value: "от 17 500", unit: "₽", label: "старт партнёра" },
-                ].map((s, i) => (
-                  <div key={i} className="bg-white p-5 hover:bg-famall-platinum transition-colors duration-300">
-                    <div className="font-montserrat font-black text-xl text-famall-dark leading-none">
-                      {s.value}<span className="text-famall-red text-sm ml-0.5">{s.unit}</span>
-                    </div>
-                    <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
-                  </div>
-                ))}
-              </div>
+            {/* лейбл */}
+            <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1 mb-6 reveal">
+              <span className="font-montserrat font-bold text-[10px] tracking-[0.2em] uppercase">Эксклюзив Россия · Новый бренд</span>
             </div>
 
-            <div className="relative reveal delay-200">
-              <div className="relative overflow-hidden" style={{ height: 580 }}>
-                <img
-                  src={HERO_PRODUCT_IMG}
-                  alt="FAMALL продукция — BERCLEAN, LIMANCY, OKFAD, SUTING, YIJIAN"
-                  className="w-full object-cover object-center absolute"
-                  style={{ top: "-8%", left: 0, width: "100%", height: "116%" }}
-                />
-                {/* размытые края — все 4 стороны */}
-                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/80" />
-                <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-white/40" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent" />
+            {/* контекст */}
+            <p className="font-ibm text-famall-silver text-sm mb-5 reveal">
+              На рынок России выходит новый бренд.<br />
+              <span className="text-famall-dark font-semibold">Первые позиции формируются сейчас.</span>
+            </p>
 
-                {/* бренд-бейдж */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-2 flex items-center gap-2">
-                  <img src={LOGO_IMG} alt="FAMALL" className="h-7 w-7 object-cover rounded-sm flex-shrink-0" />
-                  <div>
-                    <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase leading-none">FAMALL</div>
-                    <div className="font-ibm text-[10px] text-famall-silver mt-0.5">5 брендов · Premium FMCG</div>
-                  </div>
-                </div>
+            {/* H1 */}
+            <h1 className="font-montserrat font-black leading-[0.88] tracking-tight text-famall-dark mb-8 reveal delay-100"
+              style={{ fontSize: "clamp(2.8rem, 5vw, 4.2rem)" }}>
+              FAMALL —<br />
+              <span className="text-famall-red">премиальный бренд</span><br />
+              товаров с повторным спросом
+            </h1>
 
-                {/* сертификаты */}
-                <div className="absolute top-4 right-4 flex flex-col gap-1.5">
-                  {["GMPC 100K", "ISO", "FDA", "Halal"].map(cert => (
-                    <div key={cert} className="bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-0.5 text-center">
-                      <span className="font-montserrat font-black text-[10px] text-famall-dark tracking-wide">{cert}</span>
-                    </div>
-                  ))}
+            {/* 3 тезиса */}
+            <div className="space-y-2 mb-5 reveal delay-150">
+              {["Это не маркетплейс.", "Не перепродажа.", "И не «заработок на баночках»."].map((t, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
+                  <span className="font-ibm text-famall-silver-dark">{t}</span>
                 </div>
+              ))}
+            </div>
 
-                {/* бренды снизу */}
-                <div className="absolute bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-t from-famall-dark/90 to-transparent">
-                  <div className="flex flex-wrap gap-2 mb-2">
-                    {["BERCLEAN", "LIMANCY", "OKFAD", "SUTING", "YIJIAN"].map(b => (
-                      <span key={b} className="font-montserrat font-black text-[10px] text-white/90 tracking-widest bg-white/10 px-2 py-0.5 border border-white/20">{b}</span>
-                    ))}
+            {/* месседж */}
+            <div className="border-l-4 border-famall-red pl-4 py-1 mb-5 bg-famall-red/5 reveal delay-200">
+              <p className="font-montserrat font-bold text-famall-dark">Это продукт, который покупают снова.</p>
+              <p className="font-ibm text-xs text-famall-silver mt-0.5">Потому что им пользуются каждый день.</p>
+            </div>
+
+            {/* срочность */}
+            <div className="flex items-center gap-2 mb-7 reveal delay-200">
+              <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
+              <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
+            </div>
+
+            {/* кнопки */}
+            <div className="flex flex-wrap gap-4 mb-10 reveal delay-300">
+              <TgBtn text="👉 Перейти и посмотреть" />
+              <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-7 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
+                Как это работает
+              </a>
+            </div>
+
+            {/* статистика */}
+            <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400" style={{ maxWidth: 420 }}>
+              {[
+                { value: "39 000", unit: "м²", label: "собственного производства" },
+                { value: "38+", unit: "", label: "стран присутствия" },
+                { value: "GMPC", unit: " 100K", label: "фарм-уровень чистоты" },
+                { value: "от 17 500", unit: "₽", label: "старт партнёра" },
+              ].map((s, i) => (
+                <div key={i} className="bg-white/90 backdrop-blur-sm p-5 hover:bg-white transition-colors duration-300">
+                  <div className="font-montserrat font-black text-xl text-famall-dark leading-none">
+                    {s.value}<span className="text-famall-red text-sm ml-0.5">{s.unit}</span>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-3 bg-famall-red flex-shrink-0" />
-                    <span className="font-ibm text-xs text-white/70">Производственная база Zeson Group</span>
-                  </div>
+                  <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
                 </div>
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-famall-red text-white px-6 py-5 shadow-xl hidden md:block">
-                <div className="font-montserrat font-black text-3xl leading-none">39 000</div>
-                <div className="font-ibm text-xs text-white/80 mt-1">м² производства</div>
-              </div>
+              ))}
+            </div>
+          </div>
+
+          {/* плашка "Zeson Group" — внизу справа, не перекрывает кошку */}
+          <div className="absolute bottom-8 right-4 md:right-8 bg-famall-dark/80 backdrop-blur-sm text-white px-5 py-3 hidden lg:flex items-center gap-3 reveal delay-400">
+            <div className="w-0.5 h-8 bg-famall-red flex-shrink-0" />
+            <div>
+              <div className="font-montserrat font-black text-sm">39 000 м²</div>
+              <div className="font-ibm text-[10px] text-white/50 mt-0.5">Производственная база Zeson Group</div>
             </div>
           </div>
         </div>
