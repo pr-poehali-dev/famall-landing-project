@@ -197,14 +197,17 @@ export default function Index() {
             </div>
 
             <div className="relative reveal delay-200">
-              <div className="relative overflow-hidden rounded-sm shadow-2xl" style={{ height: 520 }}>
+              <div className="relative overflow-hidden" style={{ height: 580 }}>
                 <img
                   src={HERO_PRODUCT_IMG}
                   alt="FAMALL продукция — BERCLEAN, LIMANCY, OKFAD, SUTING, YIJIAN"
-                  className="w-full h-full object-cover object-center"
+                  className="w-full object-cover object-center absolute"
+                  style={{ top: "-8%", left: 0, width: "100%", height: "116%" }}
                 />
-                {/* тонкий градиент снизу */}
-                <div className="absolute inset-0 bg-gradient-to-t from-famall-dark/60 via-transparent to-transparent" />
+                {/* размытые края — все 4 стороны */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/80" />
+                <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-transparent to-white/40" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/60 via-transparent to-transparent" />
 
                 {/* бренд-бейдж */}
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-2 flex items-center gap-2">
