@@ -396,32 +396,50 @@ export default function Index() {
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Продукт</div>
               <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
-              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-6 reveal delay-100">
-                Продукт, который не нужно «впаривать»
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-3 reveal delay-100">
+                Продукт, который<br />покупают снова
               </h2>
-              <p className="font-ibm text-famall-silver-dark mb-4 reveal delay-200">
-                Бытовая химия, косметика, уход, товары для дома и здоровья.
-                То, что люди покупают регулярно.
+              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-150">
+                Не потому что уговорили. А потому что он нужен каждый день.
               </p>
-              <p className="font-ibm text-famall-dark font-semibold mb-8 reveal delay-200 border-l-2 border-famall-red pl-4">
-                Клиент не исчезает после первой покупки. Он возвращается — и это основа дохода.
+              <p className="font-ibm text-famall-silver-dark mb-3 reveal delay-200">
+                Бытовая химия, косметика, уход, гигиена, товары для дома и wellness — это не разовая покупка.
+                Это категории, к которым люди возвращаются регулярно.
               </p>
-              <div className="grid grid-cols-3 gap-px bg-famall-platinum-dark reveal delay-300">
+              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-200">
+                Здесь не нужно каждый раз «придумывать потребность». Она уже есть.
+              </p>
+              <div className="border-l-2 border-famall-red pl-4 mb-8 reveal delay-300">
+                <p className="font-ibm text-sm text-famall-silver mb-1">Разовая продажа даёт чек.</p>
+                <p className="font-montserrat font-bold text-famall-dark">Повторный продукт даёт систему дохода.</p>
+              </div>
+              <div className="grid grid-cols-3 gap-px bg-famall-platinum-dark reveal delay-400">
                 {[
-                  { icon: "RefreshCw", label: "Повторные покупки" },
-                  { icon: "Globe", label: "Международное качество" },
-                  { icon: "ShoppingBag", label: "Ежедневный спрос" },
+                  { icon: "RefreshCw", title: "Повторные покупки", desc: "Клиент возвращается за продуктом снова." },
+                  { icon: "ShoppingBag", title: "Ежедневный спрос", desc: "Товары нужны в быту, уходе и семье." },
+                  { icon: "ThumbsUp", title: "Легче рекомендовать", desc: "Не надо объяснять, зачем нужна чистота и уход." },
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-5 text-center hover:bg-famall-platinum transition-colors">
-                    <Icon name={item.icon} size={20} className="text-famall-red mx-auto mb-2" />
-                    <div className="text-xs font-montserrat font-bold text-famall-dark leading-tight">{item.label}</div>
+                  <div key={i} className="bg-white p-5 hover:bg-famall-platinum transition-colors group">
+                    <div className="w-8 h-8 bg-famall-red/10 flex items-center justify-center mb-3 group-hover:bg-famall-red transition-colors duration-300">
+                      <Icon name={item.icon} size={16} className="text-famall-red group-hover:text-white transition-colors duration-300" />
+                    </div>
+                    <div className="font-montserrat font-bold text-xs text-famall-dark mb-1">{item.title}</div>
+                    <div className="text-xs text-famall-silver font-ibm leading-snug">{item.desc}</div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="relative h-80 md:h-96 overflow-hidden reveal delay-200">
+            <div className="relative h-80 md:h-[480px] overflow-hidden reveal delay-200">
               <img src={HERO_PRODUCT_IMG} alt="FAMALL продукция" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-famall-dark/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-famall-dark/20 to-transparent" />
+              {/* badges */}
+              <div className="absolute top-4 left-4 flex flex-col gap-2">
+                {["покупают регулярно", "товары для семьи", "повторный спрос"].map(badge => (
+                  <div key={badge} className="bg-white/95 border border-famall-platinum-dark px-3 py-1.5">
+                    <span className="font-montserrat font-bold text-[11px] text-famall-dark tracking-wide">{badge}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
