@@ -584,35 +584,43 @@ export default function Index() {
       {/* ─── HYBRID MODEL ─── */}
       <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Бизнес-модель</div>
-            <div className="w-12 h-0.5 bg-famall-red mx-auto mb-6 reveal" />
-            <h2 className="font-montserrat font-black text-4xl text-famall-dark mb-4 reveal delay-100">Гибридная модель</h2>
-            <p className="font-ibm text-famall-silver-dark reveal delay-200">Два пути роста — выберите свой или комбинируйте</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="border-2 border-famall-gold/40 bg-famall-platinum p-10 reveal">
-              <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-gold uppercase mb-4">B2B направление</div>
-              <h3 className="font-montserrat font-black text-2xl text-famall-dark mb-4">Шоурумы и оптовые продажи</h3>
-              <div className="space-y-3">
-                {["Открытие шоурума или точки продаж", "Работа с корпоративными клиентами", "Оптовые поставки", "Сотрудничество с розничными сетями"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-famall-gold rounded-full flex-shrink-0" />
-                    <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Бизнес-модель</div>
+              <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
+                Гибридная модель
+              </h2>
+              <p className="font-ibm text-famall-silver-dark mb-8 reveal delay-200">
+                Хочешь деньги сейчас — продаёшь.<br />
+                Хочешь масштаб — строишь команду.<br />
+                Не выбираешь. Комбинируешь.
+              </p>
             </div>
-            <div className="border-2 border-famall-red/30 bg-famall-platinum p-10 reveal delay-200">
-              <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-red uppercase mb-4">Партнёрская сеть</div>
-              <h3 className="font-montserrat font-black text-2xl text-famall-dark mb-4">Личные продажи и команда</h3>
-              <div className="space-y-3">
-                {["Личные продажи клиентам", "Повторные покупки с постоянного круга", "Сборка партнёрской команды", "Бонусы с товарооборота структуры"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
-                    <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
-                  </div>
-                ))}
+            <div className="grid gap-4 reveal delay-200">
+              <div className="border-2 border-famall-gold/40 bg-famall-platinum p-8">
+                <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-gold uppercase mb-3">B2B — деньги сейчас</div>
+                <h3 className="font-montserrat font-black text-xl text-famall-dark mb-3">Шоурум, опт, корпоративные</h3>
+                <div className="space-y-2">
+                  {["Открытие шоурума или точки продаж", "Корпоративные клиенты", "Оптовые поставки"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-famall-gold rounded-full flex-shrink-0" />
+                      <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="border-2 border-famall-red/30 bg-famall-platinum p-8">
+                <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-red uppercase mb-3">Сеть — масштаб</div>
+                <h3 className="font-montserrat font-black text-xl text-famall-dark mb-3">Продажи + команда + оборот</h3>
+                <div className="space-y-2">
+                  {["Повторные покупки клиентов", "Партнёрская команда", "Бонусы с товарооборота"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
+                      <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -622,15 +630,52 @@ export default function Index() {
       {/* ─── AI TOOLS (БЛОК 7) ─── */}
       <section className="py-20 px-4 bg-famall-platinum" id="ai">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">ИИ-инструменты</div>
-            <div className="w-12 h-0.5 bg-famall-red mx-auto mb-6 reveal" />
-            <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
-              Ты не будешь «думать,<br />что постить»
-            </h2>
-            <p className="font-ibm text-famall-silver-dark reveal delay-200">
-              Мы даём систему продвижения через ИИ — без опыта в дизайне и маркетинге.
-            </p>
+          <div className="grid md:grid-cols-2 gap-16 items-start mb-14">
+            <div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">ИИ-инструменты</div>
+              <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
+                Контент уже<br />сделан за тебя
+              </h2>
+              <p className="font-ibm text-famall-silver-dark mb-4 reveal delay-200">
+                Самая частая проблема: «что постить?»<br />Здесь её нет.
+              </p>
+              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-200">
+                Ты не маркетолог — но выглядишь как команда.
+              </p>
+              <div className="space-y-2 reveal delay-300">
+                {["посты", "видео и сценарии", "карточки товаров", "презентации"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
+                    <span className="font-ibm text-sm text-famall-dark">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-white border border-famall-platinum-dark p-8 reveal delay-200">
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-5">Цепочка уже готова</div>
+              <div className="flex flex-wrap items-start gap-0">
+                {["контент", "заявка", "созвон", "подключение", "обучение", "команда"].map((step, i, arr) => (
+                  <div key={step} className="flex items-start">
+                    <div className="flex flex-col items-center px-2 py-1">
+                      <div className="w-8 h-8 bg-famall-red flex items-center justify-center mb-1.5">
+                        <span className="font-montserrat font-black text-xs text-white">{i + 1}</span>
+                      </div>
+                      <span className="text-xs text-famall-silver-dark font-ibm whitespace-nowrap">{step}</span>
+                    </div>
+                    {i < arr.length - 1 && (
+                      <Icon name="ChevronRight" size={13} className="text-famall-red/40 flex-shrink-0 mt-2.5" />
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 pt-6 border-t border-famall-platinum-dark">
+                <p className="font-ibm text-sm text-famall-silver-dark">
+                  Ты не создаёшь систему.<br />
+                  <span className="font-semibold text-famall-dark">Ты заходишь в готовую.</span>
+                </p>
+              </div>
+            </div>
           </div>
           <div className="grid md:grid-cols-3 gap-px bg-famall-platinum-dark mb-12">
             {AI_TOOLS.map((tool, i) => (
@@ -723,26 +768,68 @@ export default function Index() {
       {/* ─── INCOME (БЛОК 9) ─── */}
       <section className="py-20 px-4 bg-famall-platinum">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Доход</div>
-            <div className="w-12 h-0.5 bg-famall-red mx-auto mb-6 reveal" />
-            <h2 className="font-montserrat font-black text-4xl text-famall-dark mb-4 reveal delay-100">Откуда деньги</h2>
-          </div>
-          <div className="grid md:grid-cols-4 gap-px bg-famall-platinum-dark mb-10">
-            {INCOME_STEPS.map((s, i) => (
-              <div key={i} className={`bg-white p-8 hover:bg-famall-platinum transition-colors reveal delay-${i * 100}`}>
-                <div className="font-montserrat font-black text-3xl text-famall-red/20 mb-4">{s.step}</div>
-                <div className="font-montserrat font-bold text-base text-famall-dark mb-3">{s.title}</div>
-                <div className="text-sm text-famall-silver font-ibm leading-relaxed">{s.desc}</div>
-              </div>
-            ))}
-          </div>
-          <div className="bg-white border border-famall-platinum-dark p-6 reveal delay-400">
-            <div className="flex gap-3 items-start">
-              <Icon name="Info" size={18} className="text-famall-silver mt-0.5 flex-shrink-0" />
-              <p className="text-sm font-ibm text-famall-silver-dark leading-relaxed">
-                <strong className="text-famall-dark font-semibold">Важно:</strong> Доход зависит от действий, команды и активности. Никаких фиксированных сумм — только реальные результаты вашей работы.
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+            <div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Доход</div>
+              <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-6 reveal delay-100">Откуда деньги</h2>
+              <p className="font-ibm text-famall-silver-dark mb-3 reveal delay-200">
+                Ты либо каждый раз ищешь нового клиента —
               </p>
+              <p className="font-ibm text-famall-dark font-semibold mb-8 reveal delay-200">
+                либо строишь систему, где он возвращается.
+              </p>
+              <div className="space-y-px mb-8 reveal delay-300">
+                {INCOME_STEPS.map((s, i) => (
+                  <div key={i} className="bg-white p-5 flex items-start gap-4 hover:bg-white/80 transition-colors">
+                    <div className="font-montserrat font-black text-2xl text-famall-red/20 leading-none w-10 flex-shrink-0">{s.step}</div>
+                    <div>
+                      <div className="font-montserrat font-bold text-sm text-famall-dark mb-1">{s.title}</div>
+                      <div className="text-xs text-famall-silver font-ibm leading-relaxed">{s.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="space-y-4 reveal delay-200">
+              <div className="bg-white border border-famall-platinum-dark p-8">
+                <p className="font-ibm text-xs text-famall-silver uppercase tracking-widest mb-4">Деньги не из «продал и забыл»</p>
+                <p className="font-ibm text-sm text-famall-silver-dark mb-2">Здесь деньги из:</p>
+                <div className="space-y-2 mb-6">
+                  {["повторных покупок", "команды", "оборота"].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <span className="text-famall-red font-bold">—</span>
+                      <span className="font-ibm text-sm text-famall-dark font-semibold">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-famall-platinum-dark pt-5">
+                  <p className="font-ibm text-sm text-famall-silver mb-1">Один клиент = много денег</p>
+                  <p className="font-montserrat font-bold text-sm text-famall-dark">а не «разовая сделка»</p>
+                </div>
+              </div>
+              <div className="bg-famall-dark p-8">
+                <p className="font-ibm text-xs text-white/40 uppercase tracking-widest mb-5">Разница огромная</p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Icon name="X" size={14} className="text-white/30 mt-0.5 flex-shrink-0" />
+                    <span className="font-ibm text-sm text-white/40">сегодня продал → завтра с нуля</span>
+                  </div>
+                  <div className="w-full h-px bg-white/10" />
+                  <div className="flex items-start gap-3">
+                    <Icon name="Check" size={14} className="text-famall-red mt-0.5 flex-shrink-0" />
+                    <span className="font-ibm text-sm text-white font-semibold">построил → получаешь снова</span>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white border border-famall-platinum-dark p-5">
+                <div className="flex gap-3 items-start">
+                  <Icon name="Info" size={16} className="text-famall-silver mt-0.5 flex-shrink-0" />
+                  <p className="text-xs font-ibm text-famall-silver leading-relaxed">
+                    Доход зависит от действий, команды и активности. Никаких фиксированных сумм — только реальные результаты работы.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -754,25 +841,38 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-widest text-white/60 uppercase mb-6 reveal">Ранний вход</div>
-              <h2 className="font-montserrat font-black text-4xl md:text-5xl text-white leading-tight mb-6 reveal delay-100">
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl text-white leading-tight mb-4 reveal delay-100">
                 Сейчас<br />формируется рынок
               </h2>
-              <p className="font-ibm text-lg text-white/80 leading-relaxed mb-4 reveal delay-200">
-                Это момент, когда ещё можно зайти и занять позицию.
+              <p className="font-ibm text-xl text-white/90 font-semibold mb-2 reveal delay-150">
+                Не «идеальное время». А самое выгодное.
               </p>
-              <p className="font-ibm text-white/60 text-sm mb-8 reveal delay-200">
-                Позже — будешь догонять тех, кто зашёл сейчас.
-              </p>
-              <a href="#cta" className="inline-flex items-center gap-2 bg-white text-famall-red font-montserrat font-bold text-sm px-8 py-4 hover:bg-famall-platinum transition-colors reveal delay-300">
-                Занять место сейчас <Icon name="ArrowRight" size={16} />
+              <div className="space-y-2 mb-8 reveal delay-200">
+                {["дешёвый вход", "свободные позиции", "слабая конкуренция"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-white/60 font-bold">—</span>
+                    <span className="font-ibm text-sm text-white/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-white/10 border border-white/20 px-5 py-4 mb-8 reveal delay-200">
+                <p className="font-ibm text-sm text-white/60 mb-1">Потом будет как всегда:</p>
+                <p className="font-montserrat font-bold text-white">зайти можно, заработать — сложнее</p>
+              </div>
+              <div className="mb-8 reveal delay-200">
+                <p className="font-montserrat font-bold text-white/80 text-sm mb-1">Рынок не ждёт.</p>
+                <p className="font-ibm text-white/60 text-sm">Он заполняется.</p>
+              </div>
+              <a href="#cta" className="inline-flex items-center gap-2 bg-white text-famall-red font-montserrat font-black text-sm px-8 py-4 hover:bg-famall-platinum transition-colors reveal delay-300">
+                Зайти сейчас <Icon name="ArrowRight" size={16} />
               </a>
             </div>
             <div className="grid grid-cols-2 gap-4 reveal delay-200">
               {[
                 { num: "Ранний", sub: "этап входа в Россию и СНГ" },
-                { num: "Первые", sub: "позиции в структуре ещё свободны" },
-                { num: "Рост", sub: "рынка FMCG в России" },
-                { num: "Старт", sub: "формирования партнёрской сети" },
+                { num: "Свободные", sub: "позиции в структуре" },
+                { num: "Слабая", sub: "конкуренция на старте" },
+                { num: "Старт", sub: "от 17 500 ₽" },
               ].map((item, i) => (
                 <div key={i} className="bg-white/10 border border-white/20 p-5">
                   <div className="font-montserrat font-black text-xl text-white mb-1">{item.num}</div>
@@ -825,40 +925,56 @@ export default function Index() {
       {/* ─── PAIN BLOCK (БЛОК 11) ─── */}
       <section className="py-20 px-4 bg-famall-platinum">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Почему не получается</div>
               <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
-              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-8 reveal delay-100">
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
                 Почему не получается<br />у большинства
               </h2>
-              <div className="space-y-3 reveal delay-200">
-                {PAIN_POINTS.map((item, i) => (
+              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-150">
+                Не потому что тупые. А потому что:
+              </p>
+              <div className="space-y-2 mb-6 reveal delay-200">
+                {[
+                  "нет продукта с возвратом",
+                  "нет системы",
+                  "нет понимания, что делать каждый день",
+                  "нет потока заявок",
+                ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 bg-white p-4 border border-famall-platinum-dark">
-                    <div className="w-8 h-8 bg-famall-red/10 flex items-center justify-center flex-shrink-0">
-                      <Icon name="X" size={14} className="text-famall-red" />
-                    </div>
-                    <span className="font-ibm text-sm text-famall-dark">{item.text}</span>
+                    <Icon name="X" size={14} className="text-famall-red flex-shrink-0" />
+                    <span className="font-ibm text-sm text-famall-dark">{item}</span>
                   </div>
                 ))}
+              </div>
+              <div className="bg-white border border-famall-platinum-dark px-5 py-4 reveal delay-300">
+                <p className="font-ibm text-xs text-famall-silver mb-1">В итоге:</p>
+                <p className="font-montserrat font-bold text-famall-dark">сегодня продал → завтра снова с нуля</p>
               </div>
             </div>
-            <div className="bg-famall-dark p-10 reveal delay-200">
-              <div className="font-montserrat font-black text-2xl text-white mb-6">В Famall это закрыто</div>
-              <div className="space-y-4">
-                {[
-                  { icon: "CheckCircle", text: "Готовая система продаж и продвижения" },
-                  { icon: "CheckCircle", text: "Продукт с повторным спросом — клиент возвращается" },
-                  { icon: "CheckCircle", text: "Наставник и команда с первого дня" },
-                  { icon: "CheckCircle", text: "ИИ-инструменты — постоянный поток контента" },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <Icon name={item.icon} size={18} className="text-famall-red mt-0.5 flex-shrink-0" />
-                    <span className="font-ibm text-sm text-white/80">{item.text}</span>
-                  </div>
-                ))}
+            <div className="space-y-4 reveal delay-200">
+              <div className="bg-famall-dark p-8">
+                <div className="font-montserrat font-black text-xl text-white mb-5">В Famall это закрыто</div>
+                <div className="space-y-4 mb-8">
+                  {[
+                    "продукт покупают снова — клиент возвращается сам",
+                    "готовые сценарии продаж и поток контента",
+                    "наставник и команда с первого дня",
+                    "ИИ-инструменты вместо «что постить»",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <Icon name="Check" size={16} className="text-famall-red mt-0.5 flex-shrink-0" />
+                      <span className="font-ibm text-sm text-white/80">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="border-t border-white/10 pt-5">
+                  <p className="font-ibm text-sm text-white/50 mb-1">Ты не бегаешь.</p>
+                  <p className="font-montserrat font-bold text-white">Ты выстраиваешь.</p>
+                </div>
               </div>
-              <a href="#cta" className="mt-8 inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-6 py-3 hover:bg-famall-red-dark transition-colors">
+              <a href="#cta" className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-6 py-4 hover:bg-famall-red-dark transition-colors">
                 Хочу разобраться <Icon name="ArrowRight" size={16} />
               </a>
             </div>
@@ -871,10 +987,13 @@ export default function Index() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
-              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Оставить заявку</div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Финал</div>
               <div className="w-12 h-0.5 bg-famall-red mx-auto mb-6 reveal" />
+              <p className="font-ibm text-famall-silver-dark max-w-lg mx-auto mb-3 reveal">
+                Вопрос не «получится или нет».
+              </p>
               <h2 className="font-montserrat font-black text-4xl md:text-5xl text-famall-dark mb-4 reveal delay-100">
-                Хочешь понять,<br />подходит ли тебе?
+                Зайдёшь сейчас<br />или будешь<br />догонять потом?
               </h2>
               <p className="font-ibm text-famall-silver-dark max-w-xl mx-auto reveal delay-200">
                 Покажем продукт, систему и как на этом зарабатывать.
@@ -963,9 +1082,12 @@ export default function Index() {
                 <button type="submit" className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-base py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
                   Получить условия и разбор <Icon name="ArrowRight" size={18} />
                 </button>
-                <div className="flex items-center justify-center gap-2 py-1">
-                  <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse" />
-                  <span className="text-xs font-ibm text-famall-silver-dark">Ранний этап входа в Россию и СНГ — сейчас выгоднее всего</span>
+                <div className="text-center space-y-1">
+                  <p className="text-xs font-ibm text-famall-silver-dark">15–20 минут · без обязательств</p>
+                  <div className="flex items-center justify-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse" />
+                    <span className="text-xs font-ibm text-famall-silver-dark">Сейчас вход простой. Позже — нет.</span>
+                  </div>
                 </div>
                 <p className="text-xs text-famall-silver font-ibm text-center">
                   Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
@@ -983,14 +1105,16 @@ export default function Index() {
             <img src={LOGO_IMG} alt="FAMALL" className="h-10 w-10 object-cover rounded" />
             <div>
               <div className="font-montserrat font-black text-base text-white tracking-tight leading-tight">FAMALL Россия</div>
-              <div className="text-[11px] font-ibm text-white/40 leading-tight">Платформа товаров с повторным спросом · Zeson Group</div>
+              <div className="text-[11px] font-ibm text-white/40 leading-tight">Система с повторными продажами</div>
             </div>
           </div>
           <div className="text-xs font-ibm text-white/30 text-center">
-            © 2026 FAMALL Россия. Партнёрская модель. Производственная база Zeson Group.
+            © 2026 · Доход зависит от действий
           </div>
-          <div className="text-xs font-ibm text-white/30 text-center max-w-xs">
-            Доход зависит от действий и результатов
+          <div className="flex items-center gap-4">
+            <button className="text-xs font-ibm text-white/30 hover:text-white/50 transition-colors">Политика конфиденциальности</button>
+            <span className="text-white/20">|</span>
+            <button className="text-xs font-ibm text-white/30 hover:text-white/50 transition-colors">Пользовательское соглашение</button>
           </div>
         </div>
       </footer>
