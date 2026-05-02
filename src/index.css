@@ -162,3 +162,46 @@
 .delay-700 {
   transition-delay: 700ms;
 }
+
+/* Cat walk animation */
+@keyframes catWalk {
+  0% {
+    left: -80px;
+  }
+  80% {
+    left: calc(100% - 80px);
+  }
+  85% {
+    left: calc(100% - 80px);
+    transform: scaleX(-1);
+  }
+  90% {
+    left: calc(100% - 60px);
+    transform: scaleX(-1);
+  }
+  100% {
+    left: calc(100% - 60px);
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes catTail {
+  0%,
+  100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.cat-walk {
+  position: fixed;
+  bottom: 0;
+  animation: catWalk 18s ease-in-out 2s 1 forwards;
+  z-index: 40;
+  pointer-events: none;
+  font-size: 48px;
+  line-height: 1;
+  display: block;
+}
