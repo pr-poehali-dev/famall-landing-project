@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
+import CatWalker from "@/components/CatWalker";
 
 const FACTORY_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/89317544-6923-4c18-abf4-3cc40f0ea65c.jpg";
 const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/f7495e26-3cd4-4b85-9243-f804b5a06b40.jpg";
@@ -76,37 +77,12 @@ const CONTENT_CARDS = [
 export default function Index() {
   useReveal();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [catPhase, setCatPhase] = useState<"walking" | "sitting" | "done">("walking");
-
-  useEffect(() => {
-    const t1 = setTimeout(() => setCatPhase("sitting"), 17500);
-    const t2 = setTimeout(() => setCatPhase("done"), 30000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
-  }, []);
 
   return (
     <div className="font-ibm bg-white overflow-x-hidden">
 
-      {/* 🐱 Кошка идёт */}
-      {catPhase === "walking" && (
-        <div className="cat-walking" aria-hidden="true">
-          <img src={CAT_IMG} alt="" draggable={false} />
-        </div>
-      )}
-
-      {/* 🐱 Кошка сидит + плашка */}
-      {catPhase === "sitting" && (
-        <div className="cat-sitting" aria-hidden="true">
-          <div className="relative">
-            <div className="absolute bottom-full right-0 mb-2 bg-famall-dark text-white text-[10px] font-ibm leading-snug px-3 py-2 shadow-lg" style={{ maxWidth: 190 }}>
-              Ищите товары с нашей кошкой —<br />
-              <span className="text-famall-red font-semibold">не нарвитесь на подделку</span>
-              <div className="absolute bottom-0 right-6 translate-y-full border-4 border-transparent border-t-famall-dark" />
-            </div>
-            <img src={CAT_IMG} alt="FAMALL" draggable={false} />
-          </div>
-        </div>
-      )}
+      {/* 🐱 Кошка с анимацией */}
+      <CatWalker />
 
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-b border-gray-100">

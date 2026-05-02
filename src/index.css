@@ -163,72 +163,14 @@
   transition-delay: 700ms;
 }
 
-/* Cat walk animation */
-@keyframes catWalkMove {
-  0% {
-    left: -90px;
-  }
-  75% {
-    left: calc(100% - 90px);
-  }
-  100% {
-    left: calc(100% - 90px);
-  }
-}
-
-@keyframes catBob {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
-
+/* Cat sit animation (used by CatWalker component) */
 @keyframes catSit {
   0% {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.85) translateY(8px);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1) translateY(0);
   }
-}
-
-.cat-walking {
-  position: fixed;
-  bottom: 8px;
-  z-index: 40;
-  pointer-events: none;
-  width: 72px;
-  animation: catWalkMove 16s linear 1.5s 1 forwards;
-  left: -90px;
-}
-
-.cat-walking img {
-  width: 72px;
-  height: auto;
-  /* mirror: идёт вправо */
-  transform: scaleX(-1);
-  animation: catBob 0.45s ease-in-out infinite;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
-}
-
-.cat-sitting {
-  position: fixed;
-  bottom: 0;
-  right: 12px;
-  z-index: 40;
-  pointer-events: none;
-  width: 80px;
-  animation: catSit 0.5s ease-out forwards;
-  opacity: 0;
-}
-
-.cat-sitting img {
-  width: 80px;
-  height: auto;
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
 }
