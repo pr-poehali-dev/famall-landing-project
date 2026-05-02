@@ -4,10 +4,11 @@ import Icon from "@/components/ui/icon";
 const FACTORY_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/89317544-6923-4c18-abf4-3cc40f0ea65c.jpg";
 const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/f7495e26-3cd4-4b85-9243-f804b5a06b40.jpg";
 const LOGO_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/6aef32ab-6791-4c39-9dbf-3d018da18144.jpg";
-const CAT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/93e4f138-98d0-4f4d-871d-d4610a4f6ead.png";
+const CAT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/178d660f-0fbc-45e5-a994-9c9b0ad4f7c5.png";
 
 const TG_LINK = "https://t.me/+4KTa6_cKA6s2OWZi";
 const TG_POST = "https://t.me/FaMall_Rus/5";
+const TG_VIDEO = "https://t.me/FaMall_Rus/4";
 
 function TgBtn({ text = "Написать в Telegram", href = TG_LINK, className = "" }: { text?: string; href?: string; className?: string }) {
   return (
@@ -552,43 +553,64 @@ export default function Index() {
       </section>
 
       {/* ─── PRODUCTION ─── */}
-      <section className="py-20 px-4 bg-famall-platinum" id="production">
+      <section className="py-20 px-4 bg-famall-dark" id="production">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="relative h-80 overflow-hidden reveal">
-              <img src={FACTORY_IMG} alt="Zeson Group" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-famall-dark/20" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 px-3 py-2">
-                <img src={LOGO_IMG} alt="FAMALL" className="h-6 w-6 object-cover rounded-sm" />
-                <span className="font-montserrat font-bold text-xs text-famall-dark">FAMALL × Zeson Group</span>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Производство</div>
               <div className="w-12 h-0.5 bg-famall-red mb-6 reveal" />
-              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4 reveal delay-100">
-                Не склад. Производство.
+              <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-white mb-6 reveal delay-100">
+                Большинство продаёт то, что даже не видел
               </h2>
-              <p className="font-ibm text-famall-silver-dark mb-6 reveal delay-200">
-                Большинство — перекупы. Здесь по-другому.
+              <p className="font-ibm text-white/70 mb-4 reveal delay-150">
+                FAMALL — это другое.
               </p>
-              <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark mb-8 reveal delay-300">
+              <p className="font-ibm text-white/70 mb-6 reveal delay-150">
+                Это реальное производство: не склад, не перепродажа, не «с Али».
+              </p>
+              <div className="space-y-2 mb-8 reveal delay-200">
+                {["завод", "контроль качества", "технологический процесс", "готовый продукт под брендом"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <span className="text-famall-red font-bold">—</span>
+                    <span className="font-ibm text-sm text-white/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="bg-white/5 border border-white/10 px-5 py-4 mb-8 reveal delay-300">
+                <p className="font-ibm text-sm text-white/70 mb-1">Ты понимаешь, что продаёшь.</p>
+                <p className="font-montserrat font-bold text-white">И клиент это чувствует.</p>
+              </div>
+              <p className="font-ibm text-sm text-white/50 mb-4 reveal delay-300">Смотри сам 👇</p>
+              <a
+                href={TG_VIDEO}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-8 py-4 hover:bg-famall-red-dark transition-colors reveal delay-400"
+              >
+                👉 Видео с производства <Icon name="ArrowRight" size={16} />
+              </a>
+            </div>
+            <div className="space-y-4 reveal delay-200">
+              <div className="relative h-64 overflow-hidden">
+                <img src={FACTORY_IMG} alt="Zeson Group производство" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-famall-dark/30" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-white/95 px-3 py-2">
+                  <img src={LOGO_IMG} alt="FAMALL" className="h-6 w-6 object-cover rounded-sm" />
+                  <span className="font-montserrat font-bold text-xs text-famall-dark">FAMALL × Zeson Group</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-white/5">
                 {[
                   { val: "39 000", label: "м² площадей" },
                   { val: "Контроль", label: "на каждом этапе" },
                   { val: "Собственные", label: "разработки формул" },
-                  { val: "Чистые", label: "производственные зоны" },
+                  { val: "Стерильные", label: "производственные зоны" },
                 ].map((item, i) => (
-                  <div key={i} className="bg-white p-5">
-                    <div className="font-montserrat font-black text-lg text-famall-dark leading-none">{item.val}</div>
-                    <div className="text-xs text-famall-silver font-ibm mt-1">{item.label}</div>
+                  <div key={i} className="bg-white/5 border border-white/10 p-5">
+                    <div className="font-montserrat font-black text-lg text-white leading-none">{item.val}</div>
+                    <div className="text-xs text-white/40 font-ibm mt-1">{item.label}</div>
                   </div>
                 ))}
-              </div>
-              <div className="bg-famall-red/10 border border-famall-red/20 px-5 py-4 reveal delay-400">
-                <p className="font-ibm text-sm text-famall-dark font-semibold">
-                  Ты продаёшь бренд, а не ноунейм.
-                </p>
               </div>
             </div>
           </div>
