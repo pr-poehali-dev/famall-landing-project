@@ -90,7 +90,7 @@ export default function Index() {
   useReveal();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formData, setFormData] = useState({
-    name: "", phone: "", city: "", contact: "WhatsApp", interest: [] as string[]
+    name: "", phone: "", city: "", contact: "WhatsApp", interest: [] as string[], consent: false
   });
   const [submitted, setSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1108,19 +1108,35 @@ export default function Index() {
                     ))}
                   </div>
                 </div>
-                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-base py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={formData.consent}
+                    onChange={e => setFormData(p => ({ ...p, consent: e.target.checked }))}
+                    className="mt-1 w-4 h-4 accent-famall-red flex-shrink-0"
+                  />
+                  <span className="text-xs font-ibm text-famall-silver-dark leading-relaxed">
+                    Я согласен(а) на{" "}
+                    <a href="/consent" className="text-famall-dark underline hover:text-famall-red transition-colors">обработку персональных данных</a>
+                    {" "}и принимаю{" "}
+                    <a href="/terms" className="text-famall-dark underline hover:text-famall-red transition-colors">условия сайта</a>.
+                  </span>
+                </label>
+                <button
+                  type="submit"
+                  disabled={!formData.consent}
+                  className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-base py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20 disabled:opacity-40 disabled:cursor-not-allowed"
+                >
                   Получить условия и разбор <Icon name="ArrowRight" size={18} />
                 </button>
-                <div className="text-center space-y-1">
-                  <p className="text-xs font-ibm text-famall-silver-dark">15–20 минут · без обязательств</p>
+                <div className="text-center space-y-2">
+                  <p className="text-xs font-ibm text-famall-silver-dark">Разбор занимает 15–20 минут. Без обязательств.</p>
                   <div className="flex items-center justify-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse" />
-                    <span className="text-xs font-ibm text-famall-silver-dark">Сейчас вход простой. Позже — нет.</span>
+                    <Icon name="Lock" size={12} className="text-famall-silver" />
+                    <span className="text-xs font-ibm text-famall-silver">Мы не передаём данные третьим лицам. Свяжемся с вами лично.</span>
                   </div>
                 </div>
-                <p className="text-xs text-famall-silver font-ibm text-center">
-                  Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
-                </p>
               </form>
             )}
           </div>
@@ -1128,22 +1144,53 @@ export default function Index() {
       </section>
 
       {/* ─── FOOTER ─── */}
-      <footer className="bg-famall-dark py-10 px-4">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img src={LOGO_IMG} alt="FAMALL" className="h-10 w-10 object-cover rounded" />
+      <footer className="bg-famall-dark py-14 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* top row */}
+          <div className="grid md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
+
+            {/* brand */}
             <div>
-              <div className="font-montserrat font-black text-base text-white tracking-tight leading-tight">FAMALL Россия</div>
-              <div className="text-[11px] font-ibm text-white/40 leading-tight">Система с повторными продажами</div>
+              <div className="flex items-center gap-3 mb-4">
+                <img src={LOGO_IMG} alt="FAMALL" className="h-10 w-10 object-cover rounded" />
+                <div>
+                  <div className="font-montserrat font-black text-base text-white tracking-tight leading-tight">FAMALL Россия</div>
+                  <div className="text-[11px] font-ibm text-white/40 leading-tight">Платформа товаров с повторным спросом</div>
+                </div>
+              </div>
+              <p className="text-xs font-ibm text-white/30 leading-relaxed">
+                Партнёрская модель. Производственная база Zeson Group.<br />
+                Доход зависит от действий, активности и результатов партнёра.
+              </p>
             </div>
+
+            {/* docs */}
+            <div>
+              <div className="text-xs font-montserrat font-semibold uppercase tracking-widest text-white/30 mb-4">Документы</div>
+              <div className="space-y-2">
+                <a href="/privacy" className="block text-xs font-ibm text-white/40 hover:text-white/70 transition-colors">Политика конфиденциальности</a>
+                <a href="/terms" className="block text-xs font-ibm text-white/40 hover:text-white/70 transition-colors">Пользовательское соглашение</a>
+                <a href="/consent" className="block text-xs font-ibm text-white/40 hover:text-white/70 transition-colors">Согласие на обработку персональных данных</a>
+              </div>
+            </div>
+
+            {/* contacts */}
+            <div>
+              <div className="text-xs font-montserrat font-semibold uppercase tracking-widest text-white/30 mb-4">Реквизиты</div>
+              <div className="space-y-1.5">
+                <p className="text-xs font-ibm text-white/40">ИП Демьяненко Виктория Александровна</p>
+                <p className="text-xs font-ibm text-white/30">ИНН: 861101191064</p>
+                <p className="text-xs font-ibm text-white/30">ОГРНИП: 325861700004404</p>
+                <a href="mailto:vvikivv300434@gmail.com" className="block text-xs font-ibm text-white/40 hover:text-white/70 transition-colors mt-2">vvikivv300434@gmail.com</a>
+                <a href="tel:+79952025651" className="block text-xs font-ibm text-white/40 hover:text-white/70 transition-colors">+7 995 202-56-51</a>
+              </div>
+            </div>
+
           </div>
-          <div className="text-xs font-ibm text-white/30 text-center">
-            © 2026 · Доход зависит от действий
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="text-xs font-ibm text-white/30 hover:text-white/50 transition-colors">Политика конфиденциальности</button>
-            <span className="text-white/20">|</span>
-            <button className="text-xs font-ibm text-white/30 hover:text-white/50 transition-colors">Пользовательское соглашение</button>
+
+          {/* bottom row */}
+          <div className="pt-6 text-center">
+            <p className="text-xs font-ibm text-white/20">© 2026 FAMALL Россия</p>
           </div>
         </div>
       </footer>
