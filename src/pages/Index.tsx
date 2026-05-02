@@ -322,40 +322,72 @@ export default function Index() {
         </div>
       </section>
 
-      {/* ─── КАК МОЖЕТ РАСТИ ДОХОД ─── */}
-      <section className="py-20 px-4 bg-famall-platinum" id="how-income">
+      {/* ─── ПЕРЕХОД + КАК РАСТЁТ ДОХОД ─── */}
+
+      {/* переход-мост */}
+      <section className="py-16 px-4 bg-famall-dark">
+        <div className="max-w-3xl mx-auto text-center reveal">
+          <p className="font-montserrat font-black text-2xl md:text-3xl text-white leading-snug mb-5">
+            Сейчас формируется рынок.<br />
+            <span className="text-famall-red">И первые заходят не те, кто умнее — а те, кто быстрее.</span>
+          </p>
+          <div className="w-12 h-0.5 bg-famall-red mx-auto mb-5" />
+          <p className="font-ibm text-white/60 text-sm leading-relaxed mb-2">
+            Большинство смотрит.<br />
+            Небольшая часть — заходит и занимает позиции.
+          </p>
+          <p className="font-montserrat font-bold text-white/90 text-base mt-4">
+            Вопрос только в том, где ты.
+          </p>
+        </div>
+      </section>
+
+      {/* таймлайн роста дохода */}
+      <section className="py-20 px-4 bg-white" id="income">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl mb-12 reveal">
             <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4">Доход</div>
             <div className="w-12 h-0.5 bg-famall-red mb-6" />
             <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4">
-              Доход растёт не с одной продажи
+              Здесь нет потолка.<br />Есть только масштаб.
             </h2>
             <p className="font-ibm text-famall-silver-dark leading-relaxed">
-              В FAMALL доход формируется не только от личных продаж, а от повторных покупок, клиентской базы, команды и роста товарооборота.
+              Доход формируется не с одной продажи, а за счёт повторных покупок, команды и роста оборота.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-5 gap-px bg-famall-platinum-dark mb-10 reveal delay-100">
-            {[
-              { n: "01", icon: "ShoppingBag", title: "Личные продажи", desc: "Ты рекомендуешь продукт и получаешь доход с первой покупки." },
-              { n: "02", icon: "RefreshCw", title: "Повторные покупки", desc: "Клиент возвращается за товарами ежедневного спроса." },
-              { n: "03", icon: "Users", title: "Команда", desc: "Ты подключаешь партнёров и помогаешь им запускаться." },
-              { n: "04", icon: "TrendingUp", title: "Рост оборота", desc: "Чем активнее структура и повторные покупки, тем выше общий результат." },
-              { n: "05", icon: "Bot", title: "Инструменты", desc: "Обучение, материалы и AI помогают быстрее упаковать соцсети и продвигать продукт." },
-            ].map((card) => (
-              <div key={card.n} className="bg-white p-6 flex flex-col gap-3 hover:bg-famall-red group transition-colors duration-300">
-                <div className="font-montserrat font-black text-2xl text-famall-red/15 group-hover:text-white/20 leading-none transition-colors">{card.n}</div>
-                <Icon name={card.icon} fallback="CircleAlert" size={20} className="text-famall-red group-hover:text-white transition-colors" />
-                <div className="font-montserrat font-bold text-sm text-famall-dark group-hover:text-white transition-colors leading-snug">{card.title}</div>
-                <div className="font-ibm text-xs text-famall-silver group-hover:text-white/70 transition-colors leading-relaxed">{card.desc}</div>
-              </div>
-            ))}
+          {/* таймлайн */}
+          <div className="relative mb-12 reveal delay-100">
+            {/* горизонтальная линия — только desktop */}
+            <div className="hidden md:block absolute top-[28px] left-0 right-0 h-px bg-famall-platinum-dark z-0" />
+            <div className="grid md:grid-cols-6 gap-px bg-famall-platinum-dark md:bg-transparent md:gap-0">
+              {[
+                { period: "1 месяц", label: "Старт и первые результаты", income: "10 000 –\n30 000 ₽", last: false },
+                { period: "3 месяца", label: "Появляются повторные покупки", income: "50 000 –\n150 000 ₽", last: false },
+                { period: "6 месяцев", label: "Формируется база клиентов", income: "150 000 –\n300 000 ₽", last: false },
+                { period: "12 месяцев", label: "Подключается команда", income: "300 000 –\n700 000 ₽", last: false },
+                { period: "18 месяцев", label: "Рост оборота", income: "700 000 –\n1 000 000 ₽", last: false },
+                { period: "24+", label: "Масштабирование", income: "Зависит от\nструктуры", last: true },
+              ].map((m, i) => (
+                <div key={i} className={`relative flex flex-col bg-white md:bg-transparent md:pr-2`}>
+                  {/* точка на линии */}
+                  <div className={`hidden md:flex w-7 h-7 rounded-full border-2 z-10 items-center justify-center mb-4 flex-shrink-0 ${m.last ? "bg-famall-red border-famall-red" : "bg-white border-famall-red"}`}>
+                    <div className={`w-2 h-2 rounded-full ${m.last ? "bg-white" : "bg-famall-red"}`} />
+                  </div>
+                  <div className={`p-4 md:p-0 border-l-2 md:border-l-0 ${m.last ? "border-famall-red" : "border-famall-platinum-dark"} md:border-none pl-4 md:pl-0`}>
+                    <div className="font-montserrat font-black text-xs text-famall-red mb-1 uppercase tracking-wider">{m.period}</div>
+                    <div className="font-ibm text-[11px] text-famall-silver leading-snug mb-2">{m.label}</div>
+                    <div className={`font-montserrat font-black text-sm leading-snug whitespace-pre-line ${m.last ? "text-famall-silver-dark" : "text-famall-dark"}`}>{m.income}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 reveal delay-200">
+          {/* дисклеймер + кнопка */}
+          <div className="flex flex-col md:flex-row md:items-center gap-6 pt-6 border-t border-famall-platinum-dark reveal delay-200">
             <p className="font-ibm text-xs text-famall-silver leading-relaxed flex-1 max-w-xl">
-              Это не обещание фиксированного дохода. Результат зависит от активности, обучения, личных действий и товарооборота команды.
+              Это не обещание дохода. Результат зависит от действий, обучения и товарооборота команды.
             </p>
             <a
               href="https://t.me/FaMall_Rus/5"
@@ -363,126 +395,8 @@ export default function Index() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-famall-dark text-white font-montserrat font-semibold text-sm px-7 py-4 hover:bg-famall-red transition-colors duration-300 whitespace-nowrap flex-shrink-0"
             >
-              Посмотреть, как это работает →
+              👉 Посмотреть, как это работает
             </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── ДОХОД БЕЗ ПОТОЛКА ─── */}
-      <section className="py-20 px-4 bg-white" id="income">
-        <div className="max-w-6xl mx-auto">
-          {/* заголовок */}
-          <div className="text-center mb-14 reveal">
-            <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1 mb-5">
-              <span className="font-montserrat font-bold text-[10px] tracking-[0.2em] uppercase">Система · Продукт · Команда · Доход</span>
-            </div>
-            <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-2">
-              Твой доход<br /><span className="text-famall-red">не имеет потолка</span>
-            </h2>
-            <p className="font-ibm text-famall-silver text-sm mt-3">Прогноз дохода в проекте FAMALL</p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            {/* ─ рост по месяцам ─ */}
-            <div className="lg:col-span-2 reveal delay-100">
-              <div className="text-xs font-montserrat font-semibold tracking-[0.18em] uppercase text-famall-red mb-5">Как растёт твой доход</div>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-famall-platinum-dark">
-                {[
-                  { period: "1 месяц", team: "5–10 человек в команде", income: "10 000 – 30 000 ₽" },
-                  { period: "3 месяца", team: "20–40 человек в команде", income: "50 000 – 150 000 ₽" },
-                  { period: "6 месяцев", team: "80–150 человек в команде", income: "150 000 – 300 000 ₽" },
-                  { period: "12 месяцев", team: "250–500 человек в команде", income: "300 000 – 700 000 ₽" },
-                  { period: "18 месяцев", team: "500–1000 человек в команде", income: "700 000 – 1 000 000 ₽" },
-                  { period: "24 месяца+", team: "1000+ человек в команде", income: "1 000 000 ₽+ и больше", highlight: true },
-                ].map((m, i) => (
-                  <div key={i} className={`p-5 ${m.highlight ? "bg-famall-red" : "bg-white"}`}>
-                    <div className={`font-montserrat font-black text-sm mb-2 ${m.highlight ? "text-white" : "text-famall-dark"}`}>{m.period}</div>
-                    <div className={`font-ibm text-xs mb-3 leading-snug ${m.highlight ? "text-white/70" : "text-famall-silver"}`}>{m.team}</div>
-                    <div className={`font-montserrat font-black text-sm leading-snug ${m.highlight ? "text-white" : "text-famall-red"}`}>{m.income}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-4 bg-famall-dark p-4 flex items-center gap-3">
-                <div className="text-2xl leading-none">∞</div>
-                <div>
-                  <div className="font-montserrat font-bold text-sm text-white">Масштабируйся до 1 000 000 ₽+ и больше!</div>
-                  <div className="font-ibm text-xs text-white/50 mt-0.5">Доход без потолка — за счёт бесконечного роста оборота сети</div>
-                </div>
-              </div>
-            </div>
-
-            {/* ─ проценты по уровням ─ */}
-            <div className="reveal delay-150">
-              <div className="bg-famall-dark p-6 h-full">
-                <div className="text-xs font-montserrat font-semibold tracking-[0.15em] uppercase text-famall-red mb-4">Процент от оборота всей твоей структуры</div>
-                <div className="grid grid-cols-2 gap-px bg-white/10 mb-1">
-                  <div className="bg-famall-dark px-3 py-2 font-montserrat font-bold text-[10px] text-white/40 uppercase tracking-wider">Уровень</div>
-                  <div className="bg-famall-dark px-3 py-2 font-montserrat font-bold text-[10px] text-white/40 uppercase tracking-wider">% от оборота</div>
-                </div>
-                <div className="grid grid-cols-2 gap-px bg-white/10">
-                  {[
-                    { level: "1 уровень", pct: "8%" },
-                    { level: "2 уровень", pct: "4%" },
-                    { level: "3 уровень", pct: "3%" },
-                    { level: "4 уровень", pct: "2%" },
-                    { level: "5 уровень и выше", pct: "1%" },
-                  ].map((row, i) => (
-                    <>
-                      <div key={`a${i}`} className="bg-famall-dark/90 px-3 py-3 font-ibm text-xs text-white/70">{row.level}</div>
-                      <div key={`b${i}`} className="bg-famall-dark/90 px-3 py-3 font-montserrat font-black text-famall-red">{row.pct}</div>
-                    </>
-                  ))}
-                </div>
-                <div className="mt-4 pt-4 border-t border-white/10 flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full bg-famall-red mt-1.5 flex-shrink-0" />
-                  <p className="font-ibm text-xs text-white/50 leading-relaxed">Чем больше твоя структура — тем выше твой пассивный доход!</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* ─ почему это работает ─ */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-famall-platinum-dark mb-10 reveal delay-200">
-            {[
-              { icon: "RefreshCw", title: "Доход без потолка", desc: "За счёт бесконечного роста оборота сети" },
-              { icon: "ShoppingCart", title: "Повседневные покупки (FMCG)", desc: "Спрос есть всегда" },
-              { icon: "Users", title: "Рекомендации знакомым", desc: "Простая и понятная система" },
-              { icon: "GitBranch", title: "Дупликация системы", desc: "Масштабируй и умножай доход" },
-              { icon: "Bot", title: "Автоматизация через AI", desc: "Экономь время — получай результат" },
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-5 flex flex-col gap-2">
-                <Icon name={item.icon} fallback="CircleAlert" size={18} className="text-famall-red" />
-                <div className="font-montserrat font-bold text-xs text-famall-dark leading-snug">{item.title}</div>
-                <div className="font-ibm text-[11px] text-famall-silver leading-snug">{item.desc}</div>
-              </div>
-            ))}
-          </div>
-
-          {/* ─ финальный призыв ─ */}
-          <div className="bg-famall-dark p-6 md:p-8 reveal delay-300">
-            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 mb-6">
-              <div className="flex-1">
-                <div className="font-montserrat font-black text-white text-lg md:text-xl leading-snug mb-1">
-                  Начни с малого — <span className="text-famall-red">построй систему, которая принесёт свободу и финансовый рост!</span>
-                </div>
-              </div>
-              <TgBtn text="Узнать подробнее →" />
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/10">
-              {[
-                { icon: "Target", label: "Доступный старт" },
-                { icon: "Package", label: "Продукты, которые нужны" },
-                { icon: "BadgeCheck", label: "Проверенная бизнес-модель" },
-                { icon: "HeadphonesIcon", label: "Поддержка на каждом этапе" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <Icon name={item.icon} fallback="CircleAlert" size={14} className="text-famall-red flex-shrink-0" />
-                  <span className="font-ibm text-xs text-white/60 leading-snug">{item.label}</span>
-                </div>
-              ))}
-            </div>
-            <p className="font-ibm text-[10px] text-white/25 mt-4">Результаты зависят от активности, вовлечённости и навыков каждого партнёра.</p>
           </div>
         </div>
       </section>
