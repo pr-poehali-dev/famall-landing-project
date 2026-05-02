@@ -5,87 +5,52 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 230 25% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 230 25% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 230 25% 12%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 350 87% 42%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 8% 96%;
+    --secondary-foreground: 230 25% 12%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 240 8% 96%;
+    --muted-foreground: 240 6% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 240 8% 96%;
+    --accent-foreground: 230 25% 12%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 240 8% 90%;
+    --input: 240 8% 90%;
+    --ring: 350 87% 42%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Famall brand */
+    --famall-red: #c8102e;
+    --famall-red-dark: #a00d24;
+    --famall-platinum: #f4f4f6;
+    --famall-platinum-dark: #e8e8ec;
+    --famall-silver: #9b9ba8;
+    --famall-gold: #b8963e;
+    --famall-emerald: #1a7a5e;
+    --famall-dark: #1a1a2e;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
@@ -95,7 +60,105 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
   }
+
+  body {
+    @apply bg-white text-foreground font-ibm;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .famall-section {
+    @apply py-20 px-4;
+  }
+
+  .famall-container {
+    @apply max-w-6xl mx-auto;
+  }
+
+  .famall-label {
+    @apply text-xs font-montserrat font-600 tracking-[0.2em] uppercase text-famall-red;
+  }
+
+  .famall-h1 {
+    @apply font-montserrat font-900 text-5xl md:text-7xl leading-[0.95] tracking-tight text-famall-dark;
+  }
+
+  .famall-h2 {
+    @apply font-montserrat font-800 text-4xl md:text-5xl leading-tight tracking-tight text-famall-dark;
+  }
+
+  .famall-h3 {
+    @apply font-montserrat font-700 text-2xl leading-tight text-famall-dark;
+  }
+
+  .famall-body {
+    @apply font-ibm text-base leading-relaxed text-famall-silver-dark;
+  }
+
+  .btn-famall-primary {
+    @apply bg-famall-red text-white font-montserrat font-700 text-sm tracking-wide
+           px-8 py-4 rounded-none
+           hover:bg-famall-red-dark transition-all duration-200
+           inline-flex items-center gap-2 cursor-pointer;
+  }
+
+  .btn-famall-outline {
+    @apply bg-transparent text-famall-dark font-montserrat font-600 text-sm tracking-wide
+           px-8 py-4 rounded-none border border-famall-dark
+           hover:bg-famall-dark hover:text-white transition-all duration-200
+           inline-flex items-center gap-2 cursor-pointer;
+  }
+
+  .card-platinum {
+    @apply bg-famall-platinum border border-famall-platinum-dark p-8;
+  }
+
+  .card-stat {
+    @apply bg-white border border-famall-platinum-dark p-6 relative overflow-hidden;
+  }
+
+  .section-line {
+    @apply w-12 h-0.5 bg-famall-red mb-6;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Delay utilities */
+.delay-100 {
+  transition-delay: 100ms;
+}
+.delay-200 {
+  transition-delay: 200ms;
+}
+.delay-300 {
+  transition-delay: 300ms;
+}
+.delay-400 {
+  transition-delay: 400ms;
+}
+.delay-500 {
+  transition-delay: 500ms;
+}
+.delay-600 {
+  transition-delay: 600ms;
+}
+.delay-700 {
+  transition-delay: 700ms;
 }
