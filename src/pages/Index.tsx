@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const FACTORY_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/89317544-6923-4c18-abf4-3cc40f0ea65c.jpg";
+const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/f7495e26-3cd4-4b85-9243-f804b5a06b40.jpg";
 
 function useReveal() {
   useEffect(() => {
@@ -122,8 +123,8 @@ export default function Index() {
       {/* NAVIGATION */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-          <div className="font-montserrat font-black text-xl text-famall-dark tracking-tight">
-            FAM<span className="text-famall-red">ALL</span>
+          <div className="font-montserrat font-black text-xl tracking-tight">
+            <span className="text-famall-red">FAMALL</span>
           </div>
           <div className="hidden md:flex items-center gap-8">
             {NAV_ITEMS.map(item => (
@@ -154,47 +155,76 @@ export default function Index() {
       </nav>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16">
-        <div className="absolute inset-0 z-0">
-          <img src={FACTORY_IMG} alt="FAMALL производство" className="w-full h-full object-cover opacity-8" style={{ opacity: 0.08 }} />
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-famall-platinum/60" />
-        </div>
-        <div className="absolute top-1/3 right-0 w-px h-48 bg-famall-red/15 hidden lg:block" />
-        <div className="absolute top-28 right-28 w-20 h-20 border border-famall-platinum-dark rounded-full hidden lg:block" />
-        <div className="absolute bottom-32 left-8 w-1.5 h-24 bg-famall-red/25 hidden lg:block" />
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16 bg-white">
+        {/* subtle bg texture */}
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-white to-famall-platinum/40" />
+        <div className="absolute bottom-0 left-0 w-1.5 h-32 bg-famall-red/20 hidden lg:block" />
+        <div className="absolute top-24 left-1/2 w-px h-full bg-famall-platinum-dark hidden lg:block" style={{ transform: 'translateX(-50%)' }} />
 
-        <div className="max-w-6xl mx-auto px-4 relative z-10 py-24">
-          <div className="max-w-4xl">
-            <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-6 reveal">
-              Партнёрская FMCG-платформа · Россия и СНГ
-            </div>
-            <h1 className="font-montserrat font-black text-5xl md:text-7xl leading-[0.92] tracking-tight text-famall-dark mb-8 reveal delay-100">
-              Famall выходит<br />
-              <span className="text-famall-red">на рынок</span><br />
-              России и СНГ
-            </h1>
-            <p className="font-ibm text-lg md:text-xl text-famall-silver-dark leading-relaxed max-w-2xl mb-10 reveal delay-200">
-              Партнёрская FMCG-платформа нового поколения: премиальные товары ежедневного спроса,
-              производственная база Zeson Group, гибридная модель развития и ИИ-инструменты
-              для продаж, контента и масштабирования команды.
-            </p>
-            <div className="flex flex-wrap gap-4 mb-16 reveal delay-300">
-              <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm tracking-wide px-8 py-4 hover:bg-famall-red-dark transition-colors">
-                Получить условия партнёрства <Icon name="ArrowRight" size={16} />
-              </a>
-              <a href="#platform" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-dark hover:bg-famall-dark hover:text-white transition-all">
-                Посмотреть презентацию
-              </a>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-famall-platinum-dark reveal delay-400">
-              {STATS.map((s, i) => (
-                <div key={i} className="bg-white p-6 hover:bg-famall-platinum transition-colors duration-300">
-                  <div className="font-montserrat font-black text-3xl text-famall-dark leading-none">
-                    {s.value}<span className="text-famall-red text-xl ml-1">{s.unit}</span>
+        <div className="max-w-6xl mx-auto px-4 relative z-10 py-24 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* LEFT: текст */}
+            <div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-6 reveal">
+                Партнёрская FMCG-платформа · Россия и СНГ
+              </div>
+              <h1 className="font-montserrat font-black text-5xl md:text-6xl leading-[0.92] tracking-tight text-famall-dark mb-8 reveal delay-100">
+                Famall выходит<br />
+                <span className="text-famall-red">на рынок</span><br />
+                России и СНГ
+              </h1>
+              <p className="font-ibm text-lg text-famall-silver-dark leading-relaxed max-w-lg mb-10 reveal delay-200">
+                Партнёрская FMCG-платформа нового поколения: премиальные товары ежедневного спроса,
+                производственная база Zeson Group, гибридная модель развития и ИИ-инструменты
+                для продаж, контента и масштабирования команды.
+              </p>
+              <div className="flex flex-wrap gap-4 mb-12 reveal delay-300">
+                <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm tracking-wide px-8 py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
+                  Получить условия партнёрства <Icon name="ArrowRight" size={16} />
+                </a>
+                <a href="#platform" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
+                  Посмотреть презентацию
+                </a>
+              </div>
+              <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400">
+                {STATS.map((s, i) => (
+                  <div key={i} className="bg-white p-5 hover:bg-famall-platinum transition-colors duration-300">
+                    <div className="font-montserrat font-black text-2xl text-famall-dark leading-none">
+                      {s.value}<span className="text-famall-red text-base ml-1">{s.unit}</span>
+                    </div>
+                    <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
                   </div>
-                  <div className="text-xs text-famall-silver mt-2 font-ibm leading-snug">{s.label}</div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT: визуал */}
+            <div className="relative reveal delay-200">
+              {/* main image */}
+              <div className="relative overflow-hidden" style={{ height: 520 }}>
+                <img
+                  src={HERO_PRODUCT_IMG}
+                  alt="FAMALL — премиальные FMCG-продукты"
+                  className="w-full h-full object-cover"
+                />
+                {/* overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
+                {/* badge */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-3 py-2">
+                  <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase">FAMALL</div>
+                  <div className="font-ibm text-xs text-famall-silver mt-0.5">Premium FMCG</div>
                 </div>
-              ))}
+                {/* cert badge */}
+                <div className="absolute bottom-4 right-4 bg-famall-dark/90 backdrop-blur-sm px-4 py-3">
+                  <div className="font-montserrat font-bold text-xs text-white">Zeson Group</div>
+                  <div className="text-xs text-white/50 font-ibm mt-0.5">GMPC 100K · ISO · FDA</div>
+                </div>
+              </div>
+              {/* factory stat card */}
+              <div className="absolute -bottom-6 -left-6 bg-famall-red text-white px-6 py-5 shadow-xl hidden md:block">
+                <div className="font-montserrat font-black text-3xl leading-none">39 000</div>
+                <div className="font-ibm text-xs text-white/80 mt-1">м² производства</div>
+              </div>
             </div>
           </div>
         </div>
@@ -425,34 +455,35 @@ export default function Index() {
       </section>
 
       {/* ─── HYBRID MODEL ─── */}
-      <section className="py-20 px-4 bg-famall-dark">
+      <section className="py-20 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">Бизнес-модель</div>
-            <h2 className="font-montserrat font-black text-4xl text-white mb-4 reveal delay-100">Гибридная модель</h2>
-            <p className="font-ibm text-white/60 reveal delay-200">Два пути роста — выберите свой или комбинируйте</p>
+            <div className="w-12 h-0.5 bg-famall-red mx-auto mb-6 reveal" />
+            <h2 className="font-montserrat font-black text-4xl text-famall-dark mb-4 reveal delay-100">Гибридная модель</h2>
+            <p className="font-ibm text-famall-silver-dark reveal delay-200">Два пути роста — выберите свой или комбинируйте</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="border border-famall-gold/30 p-10 reveal">
+            <div className="border-2 border-famall-gold/40 bg-famall-platinum p-10 reveal">
               <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-gold uppercase mb-4">B2B направление</div>
-              <h3 className="font-montserrat font-black text-2xl text-white mb-4">Шоурумы и оптовые продажи</h3>
+              <h3 className="font-montserrat font-black text-2xl text-famall-dark mb-4">Шоурумы и оптовые продажи</h3>
               <div className="space-y-3">
                 {["Открытие шоурума или точки продаж", "Работа с корпоративными клиентами", "Оптовые поставки", "Сотрудничество с розничными сетями"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 bg-famall-gold rounded-full flex-shrink-0" />
-                    <span className="text-sm text-white/70 font-ibm">{item}</span>
+                    <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="border border-famall-red/30 p-10 reveal delay-200">
+            <div className="border-2 border-famall-red/30 bg-famall-platinum p-10 reveal delay-200">
               <div className="text-xs font-montserrat font-semibold tracking-widest text-famall-red uppercase mb-4">Партнёрская сеть</div>
-              <h3 className="font-montserrat font-black text-2xl text-white mb-4">Личные продажи и команда</h3>
+              <h3 className="font-montserrat font-black text-2xl text-famall-dark mb-4">Личные продажи и команда</h3>
               <div className="space-y-3">
                 {["Личные продажи клиентам", "Повторные покупки с постоянного круга", "Сборка партнёрской команды", "Бонусы с товарооборота структуры"].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
-                    <span className="text-sm text-white/70 font-ibm">{item}</span>
+                    <span className="text-sm text-famall-silver-dark font-ibm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -513,30 +544,57 @@ export default function Index() {
               с помощью ИИ-инструментов — без опыта в дизайне и маркетинге.
             </p>
           </div>
+          {/* AI tool cards */}
           <div className="grid md:grid-cols-3 gap-px bg-famall-platinum-dark mb-12">
             {AI_TOOLS.map((tool, i) => (
               <div key={i} className={`bg-white p-8 group transition-all duration-300 border-b-2 border-b-transparent hover:border-b-famall-red reveal delay-${i * 100}`}>
-                <div className="w-10 h-10 bg-famall-dark flex items-center justify-center mb-4 group-hover:bg-famall-red transition-colors duration-300">
-                  <Icon name={tool.icon} size={18} className="text-white" />
+                <div className="w-10 h-10 bg-famall-red/10 flex items-center justify-center mb-4 group-hover:bg-famall-red transition-colors duration-300">
+                  <Icon name={tool.icon} size={18} className="text-famall-red group-hover:text-white transition-colors duration-300" />
                 </div>
                 <div className="font-montserrat font-bold text-base text-famall-dark mb-2">{tool.title}</div>
                 <div className="text-sm text-famall-silver font-ibm leading-relaxed">{tool.desc}</div>
               </div>
             ))}
           </div>
-          <div className="bg-famall-dark p-8 md:p-12 reveal delay-300">
+
+          {/* digital mock cards */}
+          <div className="grid md:grid-cols-4 gap-4 mb-12 reveal delay-200">
+            {[
+              { label: "Карточка товара", tag: "Маркетплейс", lines: [70, 90, 55] },
+              { label: "Пост для VK / TG", tag: "Контент", lines: [80, 65, 75] },
+              { label: "Сторис-обложка", tag: "Reels / VK Клипы", lines: [60, 85, 50] },
+              { label: "Презентация", tag: "PDF / Slides", lines: [90, 70, 60] },
+            ].map((mock, i) => (
+              <div key={i} className="bg-white border border-famall-platinum-dark p-4 hover:shadow-md transition-shadow">
+                <div className="h-20 bg-famall-platinum mb-3 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-famall-red/5 to-transparent" />
+                  <Icon name="Layers" size={24} className="text-famall-red/30" />
+                </div>
+                <div className="space-y-1.5 mb-2">
+                  {mock.lines.map((w, j) => (
+                    <div key={j} className="h-1.5 bg-famall-platinum-dark rounded-full" style={{ width: `${w}%` }} />
+                  ))}
+                </div>
+                <div className="font-montserrat font-bold text-xs text-famall-dark">{mock.label}</div>
+                <div className="text-xs text-famall-red font-ibm mt-0.5">{mock.tag}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* duplication chain — светлый */}
+          <div className="bg-white border border-famall-platinum-dark p-8 md:p-10 reveal delay-300">
             <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-6">Цифровая система дупликации</div>
-            <div className="flex flex-wrap items-center gap-0">
+            <div className="flex flex-wrap items-start gap-0">
               {DUPLIC_STEPS.map((step, i) => (
-                <div key={step} className="flex items-center">
+                <div key={step} className="flex items-start">
                   <div className="flex flex-col items-center px-3 py-2">
-                    <div className="w-8 h-8 bg-famall-red/20 border border-famall-red/40 flex items-center justify-center mb-2">
-                      <span className="font-montserrat font-black text-xs text-famall-red">{i + 1}</span>
+                    <div className="w-9 h-9 bg-famall-red flex items-center justify-center mb-2">
+                      <span className="font-montserrat font-black text-xs text-white">{i + 1}</span>
                     </div>
-                    <span className="text-xs text-white/70 font-ibm whitespace-nowrap">{step}</span>
+                    <span className="text-xs text-famall-silver-dark font-ibm whitespace-nowrap">{step}</span>
                   </div>
                   {i < DUPLIC_STEPS.length - 1 && (
-                    <Icon name="ChevronRight" size={14} className="text-famall-red/40 flex-shrink-0 mb-4" />
+                    <Icon name="ChevronRight" size={14} className="text-famall-red/40 flex-shrink-0 mt-3" />
                   )}
                 </div>
               ))}
@@ -738,17 +796,22 @@ export default function Index() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-montserrat font-semibold text-famall-silver-dark uppercase tracking-wider mb-2">Способ связи</label>
-                    <select
-                      value={formData.contact}
-                      onChange={e => setFormData(p => ({ ...p, contact: e.target.value }))}
-                      className="w-full border border-famall-platinum-dark px-4 py-3 text-sm font-ibm text-famall-dark focus:outline-none focus:border-famall-red transition-colors appearance-none bg-white"
-                    >
-                      <option>WhatsApp</option>
-                      <option>Telegram</option>
-                      <option>Звонок</option>
-                      <option>Email</option>
-                    </select>
+                    <label className="block text-xs font-montserrat font-semibold text-famall-silver-dark uppercase tracking-wider mb-3">Способ связи</label>
+                    <div className="flex flex-wrap gap-2">
+                      {["WhatsApp", "Telegram", "VK", "Звонок"].map(opt => (
+                        <button
+                          key={opt} type="button"
+                          onClick={() => setFormData(p => ({ ...p, contact: opt }))}
+                          className={`px-4 py-2 text-xs font-montserrat font-semibold tracking-wide border transition-all duration-200 ${
+                            formData.contact === opt
+                              ? "bg-famall-dark text-white border-famall-dark"
+                              : "bg-white text-famall-silver-dark border-famall-platinum-dark hover:border-famall-dark"
+                          }`}
+                        >
+                          {opt}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -784,11 +847,11 @@ export default function Index() {
       {/* ─── FOOTER ─── */}
       <footer className="bg-famall-dark py-10 px-4">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="font-montserrat font-black text-xl text-white tracking-tight">
-            FAM<span className="text-famall-red">ALL</span>
+          <div className="font-montserrat font-black text-xl tracking-tight">
+            <span className="text-famall-red">FAMALL</span>
           </div>
           <div className="text-xs font-ibm text-white/30 text-center">
-            © 2024 FAMALL Россия. Партнёрская FMCG-платформа Zeson Group.
+            © 2026 FAMALL Россия. Партнёрская FMCG-платформа Zeson Group.
           </div>
           <div className="text-xs font-ibm text-white/30 text-center">
             Доход зависит от активности и условий маркетинг-плана
