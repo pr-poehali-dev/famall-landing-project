@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 import CatWalker from "@/components/CatWalker";
 
 const FACTORY_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/89317544-6923-4c18-abf4-3cc40f0ea65c.jpg";
-const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/files/f7495e26-3cd4-4b85-9243-f804b5a06b40.jpg";
+const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/b769d8b6-d882-4b53-a7de-5541a3944347.png";
 const LOGO_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/6aef32ab-6791-4c39-9dbf-3d018da18144.jpg";
 const CAT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/178d660f-0fbc-45e5-a994-9c9b0ad4f7c5.png";
 
@@ -173,26 +173,44 @@ export default function Index() {
             </div>
 
             <div className="relative reveal delay-200">
-              <div className="relative overflow-hidden" style={{ height: 520 }}>
-                <img src={HERO_PRODUCT_IMG} alt="FAMALL продукция" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-transparent" />
+              <div className="relative overflow-hidden rounded-sm shadow-2xl" style={{ height: 520 }}>
+                <img
+                  src={HERO_PRODUCT_IMG}
+                  alt="FAMALL продукция — BERCLEAN, LIMANCY, OKFAD, SUTING, YIJIAN"
+                  className="w-full h-full object-cover object-center"
+                />
+                {/* тонкий градиент снизу */}
+                <div className="absolute inset-0 bg-gradient-to-t from-famall-dark/60 via-transparent to-transparent" />
+
+                {/* бренд-бейдж */}
                 <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-2 flex items-center gap-2">
                   <img src={LOGO_IMG} alt="FAMALL" className="h-7 w-7 object-cover rounded-sm flex-shrink-0" />
                   <div>
                     <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase leading-none">FAMALL</div>
-                    <div className="font-ibm text-[10px] text-famall-silver mt-0.5">Premium FMCG</div>
+                    <div className="font-ibm text-[10px] text-famall-silver mt-0.5">5 брендов · Premium FMCG</div>
                   </div>
                 </div>
+
+                {/* сертификаты */}
                 <div className="absolute top-4 right-4 flex flex-col gap-1.5">
                   {["GMPC 100K", "ISO", "FDA", "Halal"].map(cert => (
-                    <div key={cert} className="bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2 py-0.5 text-center">
+                    <div key={cert} className="bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2.5 py-0.5 text-center">
                       <span className="font-montserrat font-black text-[10px] text-famall-dark tracking-wide">{cert}</span>
                     </div>
                   ))}
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-famall-dark/80 backdrop-blur-sm px-4 py-2.5 flex items-center gap-2">
-                  <div className="w-1 h-4 bg-famall-red flex-shrink-0" />
-                  <span className="font-ibm text-xs text-white/80">Производственная база Zeson Group</span>
+
+                {/* бренды снизу */}
+                <div className="absolute bottom-0 left-0 right-0 px-4 py-4 bg-gradient-to-t from-famall-dark/90 to-transparent">
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {["BERCLEAN", "LIMANCY", "OKFAD", "SUTING", "YIJIAN"].map(b => (
+                      <span key={b} className="font-montserrat font-black text-[10px] text-white/90 tracking-widest bg-white/10 px-2 py-0.5 border border-white/20">{b}</span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-3 bg-famall-red flex-shrink-0" />
+                    <span className="font-ibm text-xs text-white/70">Производственная база Zeson Group</span>
+                  </div>
                 </div>
               </div>
               <div className="absolute -bottom-6 -left-6 bg-famall-red text-white px-6 py-5 shadow-xl hidden md:block">
