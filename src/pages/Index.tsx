@@ -112,25 +112,36 @@ export default function Index() {
       </nav>
 
       {/* ─── HERO ─── */}
-      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-16 bg-white">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-white to-famall-platinum/40" />
-        <div className="max-w-6xl mx-auto px-4 relative z-10 py-24 w-full">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-white" style={{ paddingTop: 64 }}>
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-white via-white to-famall-platinum/30" />
+        {/* декоративная красная полоса слева */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-famall-red/20 hidden lg:block" />
+
+        <div className="max-w-6xl mx-auto px-4 relative z-10 w-full py-16 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-5 reveal">
-                <img src={LOGO_IMG} alt="" className="h-5 w-5 object-cover rounded-sm flex-shrink-0" />
-                <span className="font-montserrat font-bold text-xs tracking-wide uppercase">Эксклюзив Россия</span>
+              {/* лейбл */}
+              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-4 reveal">
+                <img src={LOGO_IMG} alt="" className="h-4 w-4 object-cover rounded-sm flex-shrink-0" />
+                <span className="font-montserrat font-bold text-[11px] tracking-widest uppercase">Эксклюзив Россия · Новый бренд</span>
               </div>
-              <p className="font-ibm text-famall-silver-dark text-sm mb-3 reveal">
+
+              {/* контекст */}
+              <p className="font-ibm text-famall-silver text-sm mb-5 reveal">
                 Сейчас на рынок России выходит новый бренд.<br />
-                И именно сейчас формируются первые позиции.
+                <span className="text-famall-dark font-semibold">И именно сейчас формируются первые позиции.</span>
               </p>
-              <h1 className="font-montserrat font-black text-5xl md:text-6xl leading-[0.92] tracking-tight text-famall-dark mb-6 reveal delay-100">
+
+              {/* H1 — крупный, без обрезки */}
+              <h1 className="font-montserrat font-black leading-[0.9] tracking-tight text-famall-dark mb-8 reveal delay-100"
+                style={{ fontSize: "clamp(2.6rem, 5.5vw, 4rem)" }}>
                 FAMALL —<br />
                 <span className="text-famall-red">премиальный бренд</span><br />
-                товаров с повторным спросом
+                товаров<br className="hidden sm:block" /> с повторным спросом
               </h1>
-              <div className="space-y-2 mb-6 reveal delay-200">
+
+              {/* 3 тезиса */}
+              <div className="space-y-2 mb-5 reveal delay-200">
                 {[
                   "Это не маркетплейс.",
                   "Не перепродажа.",
@@ -138,33 +149,46 @@ export default function Index() {
                 ].map((t, i) => (
                   <div key={i} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
-                    <span className="font-ibm text-famall-silver-dark text-base">{t}</span>
+                    <span className="font-ibm text-famall-silver-dark">{t}</span>
                   </div>
                 ))}
               </div>
-              <p className="font-ibm text-sm text-famall-dark font-semibold border-l-2 border-famall-red pl-4 mb-6 reveal delay-200">
-                Это продукт, который покупают снова.
-              </p>
-              <div className="flex items-center gap-2 mb-6 reveal delay-200">
+
+              {/* ключевой месседж */}
+              <div className="border-l-4 border-famall-red pl-4 mb-5 py-1 reveal delay-200 bg-famall-red/5">
+                <p className="font-montserrat font-bold text-famall-dark text-base">
+                  Это продукт, который покупают снова.
+                </p>
+                <p className="font-ibm text-xs text-famall-silver mt-1">
+                  Потому что им пользуются каждый день.
+                </p>
+              </div>
+
+              {/* срочность */}
+              <div className="flex items-center gap-2 mb-7 reveal delay-200">
                 <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
                 <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
               </div>
-              <div className="flex flex-wrap gap-4 mb-5 reveal delay-300">
+
+              {/* кнопки */}
+              <div className="flex flex-wrap gap-4 mb-8 reveal delay-300">
                 <TgBtn text="👉 Перейти и посмотреть" />
-                <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
+                <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-7 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
                   Как это работает
                 </a>
               </div>
+
+              {/* статистика */}
               <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400">
                 {[
                   { value: "39 000", unit: "м²", label: "собственного производства" },
-                  { value: "38+", unit: "", label: "стран — международное присутствие" },
-                  { value: "GMPC", unit: "", label: "100K — фарм-уровень чистоты" },
+                  { value: "38+", unit: "", label: "стран присутствия" },
+                  { value: "GMPC", unit: " 100K", label: "фарм-уровень чистоты" },
                   { value: "от 17 500", unit: "₽", label: "старт партнёра" },
                 ].map((s, i) => (
                   <div key={i} className="bg-white p-5 hover:bg-famall-platinum transition-colors duration-300">
-                    <div className="font-montserrat font-black text-2xl text-famall-dark leading-none">
-                      {s.value}<span className="text-famall-red text-base ml-1">{s.unit}</span>
+                    <div className="font-montserrat font-black text-xl text-famall-dark leading-none">
+                      {s.value}<span className="text-famall-red text-sm ml-0.5">{s.unit}</span>
                     </div>
                     <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
                   </div>
