@@ -274,53 +274,113 @@ export default function Index() {
       {/* ─── NOT JARS (БЛОК 1) ─── */}
       <section className="py-20 px-4 bg-famall-dark" id="not-jars">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
+
+            {/* LEFT — текст */}
             <div>
               <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-6 reveal">Что такое Famall на самом деле</div>
               <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight tracking-tight text-white mb-6 reveal delay-100">
                 Это не<br />«попробуй продай»
               </h2>
-              <p className="font-ibm text-lg text-white/70 leading-relaxed mb-8 reveal delay-200">
-                Большинство сливается, потому что продаёт без системы.
-                Здесь ты получаешь не товар — ты получаешь инструмент заработка.
+              <p className="font-ibm text-lg text-white/80 font-semibold leading-snug mb-6 reveal delay-150">
+                Это система, в которой ты не начинаешь с нуля каждый раз.
               </p>
-              <div className="space-y-3 reveal delay-300">
+
+              <p className="font-montserrat font-bold text-sm text-famall-red uppercase tracking-wider mb-3 reveal delay-200">
+                Большинство сливается не потому что «не получилось»
+              </p>
+              <p className="font-ibm text-sm text-white/60 mb-4 reveal delay-200">А потому что:</p>
+              <div className="space-y-2 mb-6 reveal delay-200">
                 {[
-                  ["Продукт с повторным спросом", "Клиенты возвращаются сами"],
-                  ["Обучение и разбор", "Живые мастер-классы с реальными кейсами"],
-                  ["ИИ-контент: посты, видео, карточки", "Без опыта в дизайне и маркетинге"],
-                  ["Готовые сценарии продаж", "Скрипты и ответы на возражения"],
-                  ["Поддержка с первого дня", "Наставник в команде с самого старта"],
-                ].map(([title, desc]) => (
-                  <div key={title} className="flex items-start gap-4 p-4 bg-white/5 border border-white/10">
-                    <div className="w-1.5 h-1.5 bg-famall-red rounded-full mt-2 flex-shrink-0" />
-                    <div>
-                      <div className="font-montserrat font-bold text-sm text-white">{title}</div>
-                      <div className="text-xs text-white/50 mt-0.5 font-ibm">{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="bg-famall-red/10 border border-famall-red/20 p-10 reveal delay-200">
-              <div className="font-montserrat font-black text-5xl text-famall-red/15 mb-6">SYSTEM</div>
-              <div className="space-y-5">
-                {[
-                  "Продукт с повторным спросом",
-                  "Обучение и наставничество",
-                  "ИИ-инструменты для продвижения",
-                  "Гибридная бизнес-модель",
-                  "Международная производственная база"
+                  "нет продукта с повторным спросом",
+                  "нет системы продаж",
+                  "нет понимания, что делать каждый день",
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 border border-famall-red/40 flex items-center justify-center flex-shrink-0">
-                      <span className="font-montserrat font-bold text-xs text-famall-red">0{i + 1}</span>
-                    </div>
-                    <span className="text-sm text-white/70 font-ibm">{item}</span>
+                    <span className="text-famall-red font-bold text-base leading-none">—</span>
+                    <span className="font-ibm text-sm text-white/70">{item}</span>
                   </div>
                 ))}
               </div>
+              <div className="bg-white/5 border border-white/10 px-5 py-4 mb-8 reveal delay-300">
+                <p className="font-ibm text-sm text-white/50 mb-1">В итоге:</p>
+                <p className="font-montserrat font-bold text-white">сегодня продал — завтра снова с нуля</p>
+              </div>
+
+              <p className="font-montserrat font-bold text-sm text-famall-red uppercase tracking-wider mb-4 reveal delay-300">
+                Здесь по-другому
+              </p>
+              <p className="font-ibm text-sm text-white/60 mb-3 reveal delay-300">Ты заходишь в модель, где:</p>
+              <div className="space-y-2 mb-8 reveal delay-300">
+                {[
+                  "продукт покупают снова и снова",
+                  "клиент возвращается без доп. рекламы",
+                  "есть готовые сценарии продаж",
+                  "есть ИИ-контент: посты, сторис, видео",
+                  "есть обучение и разборы",
+                  "есть поддержка с первого дня",
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <div className="w-1.5 h-1.5 bg-famall-red rounded-full flex-shrink-0" />
+                    <span className="font-ibm text-sm text-white/80">{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-8 py-4 hover:bg-famall-red-dark transition-colors reveal delay-400">
+                Получить условия и разбор <Icon name="ArrowRight" size={16} />
+              </a>
             </div>
+
+            {/* RIGHT — контраст */}
+            <div className="space-y-4 reveal delay-200">
+              <div className="bg-white/5 border border-white/10 p-8">
+                <p className="font-ibm text-sm text-white/50 mb-2">Ты не придумываешь, как продавать.</p>
+                <p className="font-montserrat font-bold text-lg text-white leading-snug">
+                  Ты используешь систему, которая уже работает.
+                </p>
+              </div>
+
+              <div className="bg-famall-red/10 border border-famall-red/20 p-8">
+                <p className="font-ibm text-xs text-famall-red uppercase tracking-widest font-semibold mb-5">Это разница между</p>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="X" size={10} className="text-white/30" />
+                    </div>
+                    <span className="font-ibm text-sm text-white/50">«попробую и посмотрю»</span>
+                  </div>
+                  <div className="w-full h-px bg-white/10" />
+                  <div className="flex items-start gap-3">
+                    <div className="w-5 h-5 bg-famall-red flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Icon name="Check" size={10} className="text-white" />
+                    </div>
+                    <span className="font-ibm text-sm text-white font-semibold">«зарабатываю на понятной модели»</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/5 border border-white/10 p-8">
+                <div className="font-montserrat font-black text-4xl text-famall-red/15 mb-4">SYSTEM</div>
+                <div className="space-y-4">
+                  {[
+                    "Продукт с повторным спросом",
+                    "Обучение и наставничество",
+                    "ИИ-инструменты для продвижения",
+                    "Гибридная бизнес-модель",
+                    "Международная производственная база",
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center gap-3">
+                      <div className="w-7 h-7 border border-famall-red/40 flex items-center justify-center flex-shrink-0">
+                        <span className="font-montserrat font-bold text-xs text-famall-red">0{i + 1}</span>
+                      </div>
+                      <span className="text-sm text-white/70 font-ibm">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
