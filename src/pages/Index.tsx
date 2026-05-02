@@ -159,29 +159,33 @@ export default function Index() {
 
             {/* LEFT */}
             <div>
-              <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4 reveal">
-                Партнёрская FMCG-платформа · Россия и СНГ
-              </div>
-              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-6 reveal">
+              <div className="inline-flex items-center gap-2 bg-famall-red text-white px-3 py-1.5 mb-5 reveal">
                 <img src={LOGO_IMG} alt="" className="h-5 w-5 object-cover rounded-sm flex-shrink-0" />
                 <span className="font-montserrat font-bold text-xs tracking-wide uppercase">Эксклюзив Россия</span>
+              </div>
+              <div className="text-xs font-montserrat font-semibold tracking-[0.15em] uppercase text-famall-silver-dark mb-3 reveal">
+                Платформа, где покупают снова и снова — и на этом зарабатывают
               </div>
               <h1 className="font-montserrat font-black text-5xl md:text-6xl leading-[0.92] tracking-tight text-famall-dark mb-6 reveal delay-100">
                 Famall выходит<br />
                 <span className="text-famall-red">на рынок</span><br />
                 России и СНГ
               </h1>
-              <p className="font-ibm text-lg text-famall-silver-dark leading-relaxed max-w-lg mb-3 reveal delay-200">
+              <p className="font-ibm text-lg text-famall-silver-dark leading-relaxed max-w-lg mb-4 reveal delay-200">
                 Ты заходишь в растущий рынок товаров ежедневного спроса через готовую систему:
-                продукт, обучение, ИИ-инструменты и партнёрская модель с повторными продажами.
+                продукт, обучение, ИИ-инструменты и партнёрскую модель с повторными продажами.
               </p>
-              <p className="font-ibm text-sm text-famall-dark font-semibold leading-relaxed max-w-lg mb-10 border-l-2 border-famall-red pl-4 reveal delay-200">
-                Большинство зарабатывает один раз и ищет нового клиента.<br />
+              <p className="font-ibm text-sm text-famall-dark font-semibold leading-relaxed max-w-lg mb-4 border-l-2 border-famall-red pl-4 reveal delay-200">
+                Большинство зарабатывает один раз и снова ищет клиента.<br />
                 Здесь ты работаешь с продуктом, за которым возвращаются.
               </p>
+              <div className="flex items-center gap-2 mb-6 reveal delay-200">
+                <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
+                <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
+              </div>
               <div className="flex flex-wrap gap-4 mb-5 reveal delay-300">
                 <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm tracking-wide px-8 py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
-                  Получить условия партнёрства <Icon name="ArrowRight" size={16} />
+                  Получить условия и разбор <Icon name="ArrowRight" size={16} />
                 </a>
                 <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
                   Разобраться за 3 минуты
@@ -198,7 +202,12 @@ export default function Index() {
                 <span className="text-xs font-ibm text-famall-silver-dark">Уже подключаются первые партнёры по России и СНГ</span>
               </div>
               <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400">
-                {STATS.map((s, i) => (
+                {[
+                  { value: "39 000", unit: "м²", label: "собственного производства" },
+                  { value: "38+", unit: "", label: "стран — международное присутствие" },
+                  { value: "GMPC", unit: "", label: "100K — фарм-уровень чистоты" },
+                  { value: "от 17 500", unit: "₽", label: "старт партнёра" },
+                ].map((s, i) => (
                   <div key={i} className="bg-white p-5 hover:bg-famall-platinum transition-colors duration-300">
                     <div className="font-montserrat font-black text-2xl text-famall-dark leading-none">
                       {s.value}<span className="text-famall-red text-base ml-1">{s.unit}</span>
@@ -206,10 +215,6 @@ export default function Index() {
                     <div className="text-xs text-famall-silver mt-1.5 font-ibm leading-snug">{s.label}</div>
                   </div>
                 ))}
-              </div>
-              <div className="flex items-center gap-2 mt-4 reveal delay-400">
-                <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse flex-shrink-0" />
-                <span className="text-xs font-ibm text-famall-silver-dark">Сейчас этап формирования рынка — позже вход будет сложнее.</span>
               </div>
             </div>
 
