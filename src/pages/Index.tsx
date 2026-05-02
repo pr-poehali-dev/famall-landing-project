@@ -6,6 +6,7 @@ const HERO_PRODUCT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b
 const LOGO_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/6aef32ab-6791-4c39-9dbf-3d018da18144.jpg";
 
 const TG_LINK = "https://t.me/FaMall_Rus/5";
+const CAT_IMG = "https://cdn.poehali.dev/projects/500e7e19-f909-411b-8b8a-65379865920d/bucket/93e4f138-98d0-4f4d-871d-d4610a4f6ead.png";
 
 function TgBtn({ text = "Написать в Telegram", className = "" }: { text?: string; className?: string }) {
   return (
@@ -77,26 +78,40 @@ const CONTENT_CARDS = [
 export default function Index() {
   useReveal();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [catDone, setCatDone] = useState(false);
+  const [catPhase, setCatPhase] = useState<"walking" | "sitting" | "done">("walking");
 
   useEffect(() => {
-    const t = setTimeout(() => setCatDone(true), 22000);
-    return () => clearTimeout(t);
+    // 1.5s delay + 16s walk = 17.5s → show sitting
+    const t1 = setTimeout(() => setCatPhase("sitting"), 17500);
+    // hide sitting after 12s
+    const t2 = setTimeout(() => setCatPhase("done"), 30000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
   return (
     <div className="font-ibm bg-white overflow-x-hidden">
 
-      {/* 🐱 Кошка */}
-      {!catDone && (
-        <span
-          className="cat-walk select-none"
-          style={{ left: -80, bottom: 0, position: "fixed", zIndex: 40, fontSize: 48, pointerEvents: "none",
-            animation: "catWalk 18s ease-in-out 2s 1 forwards" }}
-          role="img" aria-label="кошка"
-        >
-          🐱
-        </span>
+      {/* 🐱 Кошка идёт */}
+      {catPhase === "walking" && (
+        <div className="cat-walking" aria-hidden="true">
+          <img src={CAT_IMG} alt="" draggable={false} />
+        </div>
+      )}
+
+      {/* 🐱 Кошка сидит + плашка */}
+      {catPhase === "sitting" && (
+        <div className="cat-sitting" aria-hidden="true">
+          <div className="relative">
+            {/* плашка над кошкой */}
+            <div className="absolute bottom-full right-0 mb-2 bg-famall-dark text-white text-[10px] font-ibm leading-snug px-3 py-2 whitespace-nowrap shadow-lg"
+              style={{ maxWidth: 180 }}>
+              Ищите товары с нашей кошкой —<br />
+              <span className="text-famall-red font-semibold">не нарвитесь на подделку</span>
+              <div className="absolute bottom-0 right-6 translate-y-full border-4 border-transparent border-t-famall-dark" />
+            </div>
+            <img src={CAT_IMG} alt="FAMALL" draggable={false} />
+          </div>
+        </div>
       )}
 
       {/* NAV */}
