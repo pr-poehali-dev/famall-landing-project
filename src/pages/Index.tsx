@@ -174,17 +174,27 @@ export default function Index() {
                 России и СНГ
               </h1>
               <p className="font-ibm text-lg text-famall-silver-dark leading-relaxed max-w-lg mb-10 reveal delay-200">
-                Партнёрская FMCG-платформа нового поколения: премиальные товары ежедневного спроса,
-                производственная база Zeson Group, гибридная модель развития и ИИ-инструменты
-                для продаж, контента и масштабирования команды.
+                Войдите в рынок сейчас, пока сеть только формируется. Вы получаете готовую систему:
+                премиальный FMCG-продукт с повторным спросом, обучение с нуля,
+                ИИ-инструменты для продвижения и партнёрскую модель роста.
               </p>
-              <div className="flex flex-wrap gap-4 mb-12 reveal delay-300">
+              <div className="flex flex-wrap gap-4 mb-5 reveal delay-300">
                 <a href="#cta" className="inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm tracking-wide px-8 py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
                   Получить условия партнёрства <Icon name="ArrowRight" size={16} />
                 </a>
-                <a href="#platform" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
-                  Посмотреть презентацию
+                <a href="#not-jars" className="inline-flex items-center gap-2 bg-transparent text-famall-dark font-montserrat font-semibold text-sm px-8 py-4 border border-famall-platinum-dark hover:border-famall-dark transition-all">
+                  Разобраться за 3 минуты
                 </a>
+              </div>
+              <div className="flex items-center gap-2 mb-10 reveal delay-300">
+                <div className="flex -space-x-1">
+                  {[0,1,2].map(i => (
+                    <div key={i} className="w-6 h-6 rounded-full bg-famall-red/20 border-2 border-white flex items-center justify-center">
+                      <Icon name="User" size={10} className="text-famall-red" />
+                    </div>
+                  ))}
+                </div>
+                <span className="text-xs font-ibm text-famall-silver-dark">Уже подключаются первые партнёры по России и СНГ</span>
               </div>
               <div className="grid grid-cols-2 gap-px bg-famall-platinum-dark reveal delay-400">
                 {STATS.map((s, i) => (
@@ -214,10 +224,18 @@ export default function Index() {
                   <div className="font-montserrat font-black text-xs text-famall-red tracking-widest uppercase">FAMALL</div>
                   <div className="font-ibm text-xs text-famall-silver mt-0.5">Premium FMCG</div>
                 </div>
-                {/* cert badge */}
-                <div className="absolute bottom-4 right-4 bg-famall-dark/90 backdrop-blur-sm px-4 py-3">
-                  <div className="font-montserrat font-bold text-xs text-white">Zeson Group</div>
-                  <div className="text-xs text-white/50 font-ibm mt-0.5">GMPC 100K · ISO · FDA</div>
+                {/* cert badges row */}
+                <div className="absolute top-4 right-4 flex flex-col gap-1.5">
+                  {["GMPC 100K", "ISO", "FDA", "Halal"].map(cert => (
+                    <div key={cert} className="bg-white/95 backdrop-blur-sm border border-famall-platinum-dark px-2 py-0.5 text-center">
+                      <span className="font-montserrat font-black text-[10px] text-famall-dark tracking-wide">{cert}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* production base */}
+                <div className="absolute bottom-0 left-0 right-0 bg-famall-dark/80 backdrop-blur-sm px-4 py-2.5 flex items-center gap-2">
+                  <div className="w-1 h-4 bg-famall-red flex-shrink-0" />
+                  <span className="font-ibm text-xs text-white/80">Производственная база Zeson Group</span>
                 </div>
               </div>
               {/* factory stat card */}
@@ -226,6 +244,22 @@ export default function Index() {
                 <div className="font-ibm text-xs text-white/80 mt-1">м² производства</div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── PAIN BLOCK ─── */}
+      <section className="py-10 px-4 bg-famall-platinum border-b border-famall-platinum-dark">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+            <div className="w-1 h-12 bg-famall-red flex-shrink-0 hidden md:block" />
+            <p className="font-montserrat font-bold text-xl md:text-2xl text-famall-dark text-center md:text-left leading-snug">
+              Если ты устал продавать без системы, без повторных продаж и без роста —<br className="hidden md:block" />
+              <span className="text-famall-red"> тебе сюда.</span>
+            </p>
+            <a href="#not-jars" className="ml-auto flex-shrink-0 inline-flex items-center gap-2 bg-famall-red text-white font-montserrat font-bold text-sm px-6 py-3 hover:bg-famall-red-dark transition-colors">
+              Узнать подробнее <Icon name="ArrowRight" size={15} />
+            </a>
           </div>
         </div>
       </section>
@@ -832,9 +866,13 @@ export default function Index() {
                     ))}
                   </div>
                 </div>
-                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-base py-4 hover:bg-famall-red-dark transition-colors">
-                  Отправить заявку <Icon name="ArrowRight" size={18} />
+                <button type="submit" className="w-full flex items-center justify-center gap-2 bg-famall-red text-white font-montserrat font-bold text-base py-4 hover:bg-famall-red-dark transition-colors shadow-lg shadow-famall-red/20">
+                  Получить условия и разбор <Icon name="ArrowRight" size={18} />
                 </button>
+                <div className="flex items-center justify-center gap-2 py-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-famall-red animate-pulse" />
+                  <span className="text-xs font-ibm text-famall-silver-dark">Ранний этап входа в Россию и СНГ — сейчас выгоднее всего</span>
+                </div>
                 <p className="text-xs text-famall-silver font-ibm text-center">
                   Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
                 </p>
