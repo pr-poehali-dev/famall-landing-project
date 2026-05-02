@@ -322,6 +322,53 @@ export default function Index() {
         </div>
       </section>
 
+      {/* ─── КАК МОЖЕТ РАСТИ ДОХОД ─── */}
+      <section className="py-20 px-4 bg-famall-platinum" id="how-income">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-12 reveal">
+            <div className="text-xs font-montserrat font-semibold tracking-[0.2em] uppercase text-famall-red mb-4">Доход</div>
+            <div className="w-12 h-0.5 bg-famall-red mb-6" />
+            <h2 className="font-montserrat font-black text-4xl md:text-5xl leading-tight text-famall-dark mb-4">
+              Доход растёт не с одной продажи
+            </h2>
+            <p className="font-ibm text-famall-silver-dark leading-relaxed">
+              В FAMALL доход формируется не только от личных продаж, а от повторных покупок, клиентской базы, команды и роста товарооборота.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-5 gap-px bg-famall-platinum-dark mb-10 reveal delay-100">
+            {[
+              { n: "01", icon: "ShoppingBag", title: "Личные продажи", desc: "Ты рекомендуешь продукт и получаешь доход с первой покупки." },
+              { n: "02", icon: "RefreshCw", title: "Повторные покупки", desc: "Клиент возвращается за товарами ежедневного спроса." },
+              { n: "03", icon: "Users", title: "Команда", desc: "Ты подключаешь партнёров и помогаешь им запускаться." },
+              { n: "04", icon: "TrendingUp", title: "Рост оборота", desc: "Чем активнее структура и повторные покупки, тем выше общий результат." },
+              { n: "05", icon: "Bot", title: "Инструменты", desc: "Обучение, материалы и AI помогают быстрее упаковать соцсети и продвигать продукт." },
+            ].map((card) => (
+              <div key={card.n} className="bg-white p-6 flex flex-col gap-3 hover:bg-famall-red group transition-colors duration-300">
+                <div className="font-montserrat font-black text-2xl text-famall-red/15 group-hover:text-white/20 leading-none transition-colors">{card.n}</div>
+                <Icon name={card.icon} fallback="CircleAlert" size={20} className="text-famall-red group-hover:text-white transition-colors" />
+                <div className="font-montserrat font-bold text-sm text-famall-dark group-hover:text-white transition-colors leading-snug">{card.title}</div>
+                <div className="font-ibm text-xs text-famall-silver group-hover:text-white/70 transition-colors leading-relaxed">{card.desc}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center gap-6 reveal delay-200">
+            <p className="font-ibm text-xs text-famall-silver leading-relaxed flex-1 max-w-xl">
+              Это не обещание фиксированного дохода. Результат зависит от активности, обучения, личных действий и товарооборота команды.
+            </p>
+            <a
+              href="https://t.me/FaMall_Rus/5"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-famall-dark text-white font-montserrat font-semibold text-sm px-7 py-4 hover:bg-famall-red transition-colors duration-300 whitespace-nowrap flex-shrink-0"
+            >
+              Посмотреть, как это работает →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ─── ДОХОД БЕЗ ПОТОЛКА ─── */}
       <section className="py-20 px-4 bg-white" id="income">
         <div className="max-w-6xl mx-auto">
